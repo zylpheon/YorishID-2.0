@@ -1,63 +1,146 @@
-.bg-gradient-radial {
-    background: radial-gradient(circle at center, var(--tw-gradient-stops));
-}
-
-.btn-primary {
-    @apply inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-1;
-}
-
-.btn-secondary {
-    @apply inline-flex items-center gap-2 bg-transparent border-2 border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-white font-bold px-8 py-4 rounded-xl transition-all duration-300;
-}
-
-.feature-card {
-    @apply bg-slate-800/50 border border-slate-700 rounded-xl p-6 transition-all duration-300 hover:bg-slate-800 hover:border-emerald-500/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/10;
-}
-
-.feature-icon {
-    @apply w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4 shadow-lg;
-}
-
-.new-badge {
-    @apply inline-block mt-3 bg-amber-500 text-black text-xs font-bold px-3 py-1 rounded-full;
-}
-
-.pricing-card {
-    @apply bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-indigo-500/50 rounded-2xl p-8 shadow-2xl;
-}
-
-.faq-item[open] summary {
-    @apply bg-slate-800 border-emerald-500/50;
-}
-
-details summary::marker {
-    content: none;
-    display: none;
-}
-
-details summary::-webkit-details-marker {
-    display: none;
-}
-
-details summary::after {
-    content: '+';
-    @apply absolute right-5 text-2xl text-emerald-400 transition-transform;
-}
-
-details[open] summary::after {
-    content: '−';
-    transform: rotate(0deg);
-}
-
-details summary {
-    position: relative;
-    list-style: none;
-}
-
-@media (max-width: 768px) {
-
-    .btn-primary,
-    .btn-secondary {
-        @apply w-full justify-center;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(180deg);
+    }
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, #00458E, #000328);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+.btn-gradient:hover {
+    animation-play-state: paused;
+}
+
+.icon-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #00458E, #000328);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+.glass-modern {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+    transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-modern:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 69, 142, 0.2), 0 8px 25px rgba(0, 69, 142, 0.15);
+}
+
+.neuro-card {
+    box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.2), -12px -12px 24px rgba(255, 255, 255, 0.8);
+    transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.neuro-card:hover {
+    box-shadow: 16px 16px 32px rgba(163, 177, 198, 0.25), -16px -16px 32px rgba(255, 255, 255, 0.9);
+    transform: translateY(-8px);
+}
+
+.pattern-dots {
+    background-image: radial-gradient(circle, #bae6fd 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.3;
+}
+
+.pattern-grid {
+    background-image: linear-gradient(#e0f2fe 1px, transparent 1px), linear-gradient(90deg, #e0f2fe 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 500ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary:hover .btn-shine {
+    left: 100%;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00458E;
+    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.hamburger-line {
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
 }

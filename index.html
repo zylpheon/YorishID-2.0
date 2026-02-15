@@ -38,118 +38,182 @@
     }
     </script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#00458E',
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            400: '#38bdf8',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body>
-    <div id="loading" class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <p class="loading-text">Loading...</p>
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+    <div id="loading"
+        class="fixed inset-0 bg-gradient-to-br from-gray-50 to-primary-50 flex items-center justify-center z-[9999] transition-opacity duration-500">
+        <div class="text-center">
+            <div
+                class="loading-spinner w-[60px] h-[60px] border-4 border-primary-200 border-t-primary-600 rounded-full mx-auto mb-4">
+            </div>
+            <p class="text-lg font-semibold text-primary-700">Loading...</p>
         </div>
     </div>
-    <div id="scroll-progress" class="scroll-progress"></div>
-    <div class="menu-overlay" id="menu-overlay"></div>
-    <nav class="navbar" id="navbar">
-        <div class="container navbar-container">
-            <div class="navbar-content">
-                <div class="navbar-logo" data-aos="fade-down" data-aos-delay="100">
-                    <img src="./images/logo.jpg" alt="Logo YorishID Academy" class="logo-img" width="48" height="48">
-                    <span class="brand-text">YORISHID</span>
+
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-primary-800 z-[9998] transition-all duration-100"
+        style="width: 0%;"></div>
+
+    <div class="menu-overlay fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-[998]"
+        id="menu-overlay"></div>
+
+    <nav class="navbar fixed top-0 left-0 w-full h-20 bg-white/80 backdrop-blur-lg border-b border-black/5 z-[1000] transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto px-6 h-full">
+            <div class="flex items-center justify-between h-full">
+                <div class="flex items-center gap-3 cursor-pointer" data-aos="fade-down" data-aos-delay="100">
+                    <img src="./images/logo.jpg" alt="Logo YorishID Academy"
+                        class="w-12 h-12 rounded-lg object-cover transition-transform duration-300 hover:scale-110 hover:rotate-6"
+                        width="48" height="48">
+                    <span class="text-2xl font-extrabold gradient-text tracking-tight">YORISHID</span>
                 </div>
-                <div class="navbar-menu">
-                    <a href="#home" class="nav-link" data-aos="fade-down" data-aos-delay="200">Beranda</a>
-                    <a href="#about" class="nav-link" data-aos="fade-down" data-aos-delay="300">Tentang</a>
-                    <a href="#benefits" class="nav-link" data-aos="fade-down" data-aos-delay="400">Materi</a>
-                    <a href="#pricing" class="nav-link" data-aos="fade-down" data-aos-delay="500">Harga</a>
-                    <a href="ngrender.html" class="nav-link" data-aos="fade-down" data-aos-delay="600">Tools</a>
+                <div class="hidden md:flex gap-8">
+                    <a href="#home"
+                        class="nav-link relative font-semibold text-gray-800 py-2 transition-colors duration-300 hover:text-primary"
+                        data-aos="fade-down" data-aos-delay="200">Beranda</a>
+                    <a href="#about"
+                        class="nav-link relative font-semibold text-gray-800 py-2 transition-colors duration-300 hover:text-primary"
+                        data-aos="fade-down" data-aos-delay="300">Tentang</a>
+                    <a href="#benefits"
+                        class="nav-link relative font-semibold text-gray-800 py-2 transition-colors duration-300 hover:text-primary"
+                        data-aos="fade-down" data-aos-delay="400">Materi</a>
+                    <a href="#pricing"
+                        class="nav-link relative font-semibold text-gray-800 py-2 transition-colors duration-300 hover:text-primary"
+                        data-aos="fade-down" data-aos-delay="500">Harga</a>
+                    <a href="ngrender.html"
+                        class="nav-link relative font-semibold text-gray-800 py-2 transition-colors duration-300 hover:text-primary"
+                        data-aos="fade-down" data-aos-delay="600">Tools</a>
                 </div>
-                <button class="hamburger-btn" id="mobile-menu-btn" aria-label="Menu navigasi" aria-expanded="false">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
+                <button
+                    class="hamburger-btn md:hidden flex flex-col justify-between w-[30px] h-6 bg-transparent border-none cursor-pointer p-0 z-[1001] transition-transform duration-300 hover:scale-110"
+                    id="mobile-menu-btn" aria-label="Menu navigasi" aria-expanded="false">
+                    <span class="hamburger-line w-full h-[3px] bg-gray-800 rounded-full"></span>
+                    <span class="hamburger-line w-full h-[3px] bg-gray-800 rounded-full"></span>
+                    <span class="hamburger-line w-full h-[3px] bg-gray-800 rounded-full"></span>
                 </button>
             </div>
         </div>
     </nav>
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-content">
-            <a href="#home" class="mobile-menu-link">Beranda</a>
-            <a href="#about" class="mobile-menu-link">Tentang</a>
-            <a href="#benefits" class="mobile-menu-link">Materi</a>
-            <a href="#pricing" class="mobile-menu-link">Harga</a>
-            <a href="ngrender.html" class="mobile-menu-link">Tools</a>
+
+    <div class="mobile-menu fixed top-20 left-0 w-full max-h-0 overflow-hidden bg-white/95 backdrop-blur-lg border-b border-black/5 transition-all duration-500 z-[999]"
+        id="mobile-menu">
+        <div class="p-6">
+            <a href="#home"
+                class="mobile-menu-link block py-4 text-lg font-semibold text-gray-800 border-b border-gray-200 transition-all duration-300 hover:text-primary-600 hover:pl-4 active:bg-primary-50">Beranda</a>
+            <a href="#about"
+                class="mobile-menu-link block py-4 text-lg font-semibold text-gray-800 border-b border-gray-200 transition-all duration-300 hover:text-primary-600 hover:pl-4 active:bg-primary-50">Tentang</a>
+            <a href="#benefits"
+                class="mobile-menu-link block py-4 text-lg font-semibold text-gray-800 border-b border-gray-200 transition-all duration-300 hover:text-primary-600 hover:pl-4 active:bg-primary-50">Materi</a>
+            <a href="#pricing"
+                class="mobile-menu-link block py-4 text-lg font-semibold text-gray-800 border-b border-gray-200 transition-all duration-300 hover:text-primary-600 hover:pl-4 active:bg-primary-50">Harga</a>
+            <a href="ngrender.html"
+                class="mobile-menu-link block py-4 text-lg font-semibold text-gray-800 transition-all duration-300 hover:text-primary-600 hover:pl-4 active:bg-primary-50">Tools</a>
         </div>
     </div>
-    <section id="home" class="hero-section">
-        <div class="pattern-dots"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-aos="fade-up">
+
+    <section id="home" class="min-h-screen flex items-center pt-24 relative overflow-hidden">
+        <div class="pattern-dots absolute inset-0 pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" data-aos="fade-up">
                     KELAS ONLINE YOUTUBE<br>
                     <span class="gradient-text">YORISHID ACADEMY</span>
                 </h1>
-                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-lg md:text-2xl font-semibold text-gray-700 mb-4" data-aos="fade-up" data-aos-delay="100">
                     SAATNYA MENJADI CREATOR YOUTUBE!<br>
-                    <span class="hero-subtitle-large">MULAI DARI SEKARANG!</span>
+                    <span class="text-xl md:text-3xl font-bold gradient-text">MULAI DARI SEKARANG!</span>
                 </p>
-                <div class="hero-price" data-aos="fade-up" data-aos-delay="200">
-                    💰 HARGA: <del class="price-old">RP 1.500.000</del><br>
-                    <span class="price-new">RP 750.000</span><br>
-                    <span class="price-badge">AKSES LIFETIME [ SEUMUR HIDUP ]</span>
+                <div class="text-xl md:text-3xl font-extrabold mb-8 leading-relaxed" data-aos="fade-up"
+                    data-aos-delay="200">
+                    💰 HARGA: <del class="text-red-500 text-[0.9em]">RP 1.500.000</del><br>
+                    <span class="gradient-text text-[1.2em]">RP 750.000</span><br>
+                    <span class="text-base md:text-lg font-semibold text-primary">AKSES LIFETIME [ SEUMUR HIDUP ]</span>
                 </div>
-                <div class="hero-alert glass-card" data-aos="fade-up" data-aos-delay="300">
-                    <h2 class="alert-title">🔥 HANYA UNTUK YANG BENAR-BENAR NIAT! 🔥</h2>
-                    <p class="alert-text">
+                <div class="glass-card rounded-3xl p-6 mb-8 border-2 border-primary-200/20" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <h2 class="text-xl md:text-2xl font-bold mb-4 text-primary-800">🔥 HANYA UNTUK YANG BENAR-BENAR
+                        NIAT! 🔥</h2>
+                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
                         BUKAN UNTUK YANG SETENGAH HATI ATAU HANYA INGIN COBA-COBA.<br>
                         INI UNTUK KAMU YANG SERIUS INGIN HIDUP DARI YOUTUBE.
                     </p>
                 </div>
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#pricing" class="btn-primary btn-gradient">
-                        <span class="btn-text">Daftar Sekarang</span>
+                <div class="flex flex-wrap justify-center gap-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#pricing"
+                        class="btn-primary btn-gradient relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0">
+                        <span class="relative z-10">Daftar Sekarang</span>
                         <span class="btn-shine"></span>
                     </a>
-                    <a href="ngrender.html" class="btn-primary btn-secondary">
-                        <span class="btn-text">Tools ngrender super cepat</span>
+                    <a href="ngrender.html"
+                        class="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 bg-gradient-to-br from-emerald-500 to-emerald-600">
+                        <span class="relative z-10">Tools ngrender super cepat</span>
                         <span class="btn-shine"></span>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="hero-gradient-bg"></div>
     </section>
-    <section id="about" class="section-about">
-        <div class="pattern-grid"></div>
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title gradient-text" data-aos="fade-up">🚀 Cocok Untuk...</h2>
+
+    <section id="about" class="py-20 relative bg-gray-50">
+        <div class="pattern-grid absolute inset-0 pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4" data-aos="fade-up">🚀 Cocok Untuk...</h2>
             </div>
-            <div class="about-grid">
-                <article class="about-card neuro-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <article class="neuro-card bg-gray-50 rounded-2xl p-8 text-center" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <circle cx="12" cy="12" r="10"></circle>
                             <circle cx="12" cy="12" r="6"></circle>
                             <circle cx="12" cy="12" r="2"></circle>
                         </svg>
                     </div>
-                    <h3 class="about-title">Pemula dari Nol</h3>
-                    <p class="about-desc">Mulai dari awal tanpa pengalaman</p>
+                    <h3 class="text-lg font-bold mb-3">Pemula dari Nol</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Mulai dari awal tanpa pengalaman</p>
                 </article>
-                <article class="about-card neuro-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="about-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="neuro-card bg-gray-50 rounded-2xl p-8 text-center" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                             <polyline points="17 6 23 6 23 12"></polyline>
                         </svg>
                     </div>
-                    <h3 class="about-title">Creator Naik Level</h3>
-                    <p class="about-desc">Tingkatkan skill & penghasilan</p>
+                    <h3 class="text-lg font-bold mb-3">Creator Naik Level</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Tingkatkan skill & penghasilan</p>
                 </article>
-                <article class="about-card neuro-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="about-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="neuro-card bg-gray-50 rounded-2xl p-8 text-center" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="2" y1="12" x2="22" y2="12"></line>
                             <path
@@ -157,51 +221,60 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="about-title">Market Luar Negeri</h3>
-                    <p class="about-desc">Fokus RPM tinggi & pasar global</p>
+                    <h3 class="text-lg font-bold mb-3">Market Luar Negeri</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Fokus RPM tinggi & pasar global</p>
                 </article>
-                <article class="about-card neuro-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="about-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="neuro-card bg-gray-50 rounded-2xl p-8 text-center" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <line x1="12" y1="1" x2="12" y2="23"></line>
                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                         </svg>
                     </div>
-                    <h3 class="about-title">Penghasilan Stabil</h3>
-                    <p class="about-desc">Strategi monetisasi yang efektif</p>
+                    <h3 class="text-lg font-bold mb-3">Penghasilan Stabil</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Strategi monetisasi yang efektif</p>
                 </article>
-                <article class="about-card neuro-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="about-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="neuro-card bg-gray-50 rounded-2xl p-8 text-center" data-aos="fade-up"
+                    data-aos-delay="500">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                             <line x1="12" y1="18" x2="12.01" y2="18"></line>
                         </svg>
                     </div>
-                    <h3 class="about-title">Modal HP/PC/Laptop</h3>
-                    <p class="about-desc">Ubah device jadi mesin penghasil uang</p>
+                    <h3 class="text-lg font-bold mb-3">Modal HP/PC/Laptop</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Ubah device jadi mesin penghasil uang</p>
                 </article>
             </div>
         </div>
     </section>
-    <section id="benefits" class="section-benefits">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title gradient-text" data-aos="fade-up">🎬 Yang Kamu Dapatkan</h2>
+
+    <section id="benefits" class="py-20 relative bg-gray-50">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text" data-aos="fade-up">🎬 Yang Kamu Dapatkan</h2>
             </div>
-            <div class="benefits-grid">
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="100">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polygon points="23 7 16 12 23 17 23 7"></polygon>
                             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Materi Lengkap A–Z dalam Bentuk Video</h3>
-                    <p class="benefit-desc">Semua dibahas detail dan mudah dipahami</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Materi Lengkap A–Z dalam Bentuk Video</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Semua dibahas detail dan mudah dipahami</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="200">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="2" y1="12" x2="22" y2="12"></line>
                             <path
@@ -209,42 +282,50 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Konten Indo dan Luar Negeri</h3>
-                    <p class="benefit-desc">Strategi untuk pasar lokal dan global</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Konten Indo dan Luar Negeri</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Strategi untuk pasar lokal dan global</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="300">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Strategi Real & Bisa Langsung Dipraktekkan</h3>
-                    <p class="benefit-desc">Terbukti berhasil dan siap diaplikasikan</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Strategi Real & Bisa Langsung Dipraktekkan</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Terbukti berhasil dan siap diaplikasikan</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="400">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <circle cx="12" cy="12" r="10"></circle>
                             <circle cx="12" cy="12" r="6"></circle>
                             <circle cx="12" cy="12" r="2"></circle>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Teknik Riset Judul & Thumbnail RPM Tinggi</h3>
-                    <p class="benefit-desc">Desain yang menarik untuk hasil maksimal</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Teknik Riset Judul & Thumbnail RPM Tinggi</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Desain yang menarik untuk hasil maksimal</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="500">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="500">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Cara Menemukan Keyword yang Jitu</h3>
-                    <p class="benefit-desc">Riset keyword untuk performa terbaik</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Cara Menemukan Keyword yang Jitu</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Riset keyword untuk performa terbaik</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="600">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="600">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
                             <line x1="7" y1="2" x2="7" y2="22"></line>
                             <line x1="17" y1="2" x2="17" y2="22"></line>
@@ -255,68 +336,84 @@
                             <line x1="17" y1="7" x2="22" y2="7"></line>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Mulai dari Ide Konten dan Cara Editing Video</h3>
-                    <p class="benefit-desc">Panduan lengkap produksi konten berkualitas</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Mulai dari Ide Konten dan Cara Editing Video
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Panduan lengkap produksi konten berkualitas</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="700">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="700">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <circle cx="8.5" cy="8.5" r="1.5"></circle>
                             <polyline points="21 15 16 10 5 21"></polyline>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Cara Membuat Prompt AI</h3>
-                    <p class="benefit-desc">Gambar & musik sesuai keinginan dengan AI</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Cara Membuat Prompt AI</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Gambar & musik sesuai keinginan dengan AI</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="800">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="800">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <circle cx="12" cy="12" r="2"></circle>
                             <path
                                 d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14">
                             </path>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Materi Livestreaming Channel Baru atau Peralihan</h3>
-                    <p class="benefit-desc">Strategi live streaming yang efektif</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Materi Livestreaming Channel Baru atau Peralihan
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Strategi live streaming yang efektif</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="900">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="900">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <line x1="12" y1="20" x2="12" y2="10"></line>
                             <line x1="18" y1="20" x2="18" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="16"></line>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Optimasi Channel, Video, Algoritma & Monetisasi</h3>
-                    <p class="benefit-desc">Maksimalkan performa dan penghasilan</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Optimasi Channel, Video, Algoritma & Monetisasi
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Maksimalkan performa dan penghasilan</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="1000">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="1000">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M9 18V5l12-2v13"></path>
                             <circle cx="6" cy="18" r="3"></circle>
                             <circle cx="18" cy="16" r="3"></circle>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Ubah Musik Suno Mu Menjadi Uang dari Agregator</h3>
-                    <p class="benefit-desc">Monetisasi musik AI untuk penghasilan tambahan</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Ubah Musik Suno Mu Menjadi Uang dari Agregator
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Monetisasi musik AI untuk penghasilan tambahan</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="1100">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="1100">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
                             <polyline points="8 8 12 4 16 8"></polyline>
                             <polyline points="16 16 12 20 8 16"></polyline>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Bimbingan Akses Seumur Hidup</h3>
-                    <p class="benefit-desc">Bisa diulang kapan saja tanpa batas waktu</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Bimbingan Akses Seumur Hidup</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Bisa diulang kapan saja tanpa batas waktu</p>
                 </article>
-                <article class="benefit-card glass-modern" data-aos="fade-up" data-aos-delay="1200">
-                    <div class="benefit-icon gradient-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <article class="glass-modern rounded-3xl p-7 relative overflow-hidden" data-aos="fade-up"
+                    data-aos-delay="1200">
+                    <div
+                        class="w-14 h-14 mb-5 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-800 text-white shadow-md">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 12 20 22 4 22 4 12"></polyline>
                             <rect x="2" y="7" width="20" height="5"></rect>
                             <line x1="12" y1="22" x2="12" y2="7"></line>
@@ -324,18 +421,21 @@
                             <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Free Tools Youtuber</h3>
-                    <p class="benefit-desc">Overlay ASMR/Relaxing & Grup WA Sharing Member</p>
+                    <h3 class="text-lg font-semibold mb-2 leading-snug">Free Tools Youtuber</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Overlay ASMR/Relaxing & Grup WA Sharing Member</p>
                 </article>
             </div>
-            <div class="benefits-extra glass-modern" data-aos="fade-up" data-aos-delay="1300">
-                <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div class="glass-modern rounded-3xl p-8 mt-8 text-center flex items-center justify-center gap-4"
+                data-aos="fade-up" data-aos-delay="1300">
+                <svg class="icon-sparkle w-8 h-8 stroke-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
                     <polygon
                         points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
                     </polygon>
                 </svg>
-                <p class="extra-text">DAN LAIN LAIN</p>
-                <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <p class="text-2xl font-bold gradient-text">DAN LAIN LAIN</p>
+                <svg class="icon-sparkle w-8 h-8 stroke-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
                     <polygon
                         points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
                     </polygon>
@@ -343,203 +443,235 @@
             </div>
         </div>
     </section>
-    <section id="pricing" class="section-pricing">
-        <div class="pattern-dots"></div>
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-aos="fade-up">Investasi Masa Depanmu</h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Satu pembayaran, akses selamanya!
-                </p>
+
+    <section id="pricing" class="py-20 relative">
+        <div class="pattern-dots absolute inset-0 pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Investasi Masa Depanmu</h2>
+                <p class="text-xl text-gray-600 font-medium" data-aos="fade-up" data-aos-delay="100">Satu pembayaran,
+                    akses selamanya!</p>
             </div>
-            <div class="pricing-container">
-                <div class="pricing-card gradient-border glass-modern" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pricing-header">
-                        <h3 class="pricing-plan">Kelas Online YouTube<br>YORISHID ACADEMY</h3>
-                        <div class="pricing-amount">
-                            <del class="pricing-old">Rp 1.500.000</del>
-                            <div class="pricing-new">Rp 750.000</div>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-modern rounded-3xl p-10 relative bg-gray-50" data-aos="fade-up" data-aos-delay="200"
+                    style="border: 2px solid rgba(0, 69, 142, 0.1);">
+                    <div class="text-center mb-8 pb-6 border-b-2 border-primary-100">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-5">Kelas Online YouTube<br>YORISHID ACADEMY</h3>
+                        <div class="mb-4">
+                            <del class="text-2xl md:text-3xl text-red-500 block mb-2">Rp 1.500.000</del>
+                            <div class="text-5xl md:text-6xl font-extrabold gradient-text inline-block">Rp 750.000</div>
                         </div>
-                        <p class="pricing-term">AKSES LIFETIME [ SEUMUR HIDUP ]</p>
+                        <p class="text-lg md:text-xl font-semibold text-primary">AKSES LIFETIME [ SEUMUR HIDUP ]</p>
                     </div>
-                    <div class="pricing-features">
-                        <h4 class="features-title">Sudah Termasuk:</h4>
-                        <ul class="features-list">
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold mb-5 text-center">Sudah Termasuk:</h4>
+                        <ul class="space-y-0">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Materi lengkap A–Z dalam bentuk video</span>
+                                <span class="text-base">Materi lengkap A–Z dalam bentuk video</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Konten Indo dan Luar Negeri</span>
+                                <span class="text-base">Konten Indo dan Luar Negeri</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Strategi real & bisa langsung dipraktekkan</span>
+                                <span class="text-base">Strategi real & bisa langsung dipraktekkan</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Teknik riset judul & thumbnail RPM tinggi</span>
+                                <span class="text-base">Teknik riset judul & thumbnail RPM tinggi</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Cara menemukan keyword yang jitu</span>
+                                <span class="text-base">Cara menemukan keyword yang jitu</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Ide konten & cara editing video</span>
+                                <span class="text-base">Ide konten & cara editing video</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Cara membuat prompt AI (gambar/musik)</span>
+                                <span class="text-base">Cara membuat prompt AI (gambar/musik)</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Materi livestreaming channel baru/peralihan</span>
+                                <span class="text-base">Materi livestreaming channel baru/peralihan</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Optimasi channel, video, algoritma & monetisasi</span>
+                                <span class="text-base">Optimasi channel, video, algoritma & monetisasi</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Ubah musik Suno mu jadi uang dari agregator</span>
+                                <span class="text-base">Ubah musik Suno mu jadi uang dari agregator</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Bimbingan akses seumur hidup</span>
+                                <span class="text-base">Bimbingan akses seumur hidup</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 border-b border-primary-100 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Free tools youtuber & overlay ASMR/Relaxing</span>
+                                <span class="text-base">Free tools youtuber & overlay ASMR/Relaxing</span>
                             </li>
-                            <li class="feature-item">
-                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3">
+                            <li
+                                class="flex items-start gap-3.5 py-2.5 transition-all duration-300 hover:bg-primary-50 hover:pl-2 rounded-lg">
+                                <svg class="w-6 h-6 min-w-[24px] stroke-primary mt-0.5" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span>Grup WA sharing member</span>
+                                <span class="text-base">Grup WA sharing member</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="pricing-payment">
-                        <div class="payment-card glass-card">
-                            <h4 class="payment-title">💳 Cara Pembayaran:</h4>
-                            <div class="payment-info">
-                                <p class="payment-label">Transfer ke BCA:</p>
-                                <p class="payment-number">0600677161</p>
-                                <p class="payment-name">a/n YOSEPH ARIS BUDIANTORO</p>
+                    <div class="grid gap-6">
+                        <div class="glass-card rounded-2xl p-7">
+                            <h4 class="text-lg font-bold mb-4">💳 Cara Pembayaran:</h4>
+                            <div class="mt-4">
+                                <p class="font-semibold text-gray-700 mb-2">Transfer ke BCA:</p>
+                                <p class="text-2xl font-extrabold text-primary mb-2">0600677161</p>
+                                <p class="font-semibold text-gray-700">a/n YOSEPH ARIS BUDIANTORO</p>
                             </div>
                         </div>
-                        <div class="payment-card glass-card">
-                            <h4 class="payment-title">📩 Setelah Transfer:</h4>
-                            <p class="payment-note">Konfirmasi pembayaran ke WhatsApp:</p>
+                        <div class="glass-card rounded-2xl p-7">
+                            <h4 class="text-lg font-bold mb-4">📩 Setelah Transfer:</h4>
+                            <p class="mb-4 text-gray-700">Konfirmasi pembayaran ke WhatsApp:</p>
                             <a href="https://wa.me/6285842615683" target="_blank" rel="noopener noreferrer"
-                                class="btn-primary btn-large btn-gradient btn-success">
-                                <span class="btn-text">Konfirmasi via WhatsApp</span>
+                                class="btn-primary relative inline-flex items-center justify-center w-full px-10 py-5 text-lg font-bold text-white rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 bg-gradient-to-br from-emerald-500 to-emerald-600">
+                                <span class="relative z-10">Konfirmasi via WhatsApp</span>
                                 <span class="btn-shine"></span>
                             </a>
-                            <p class="payment-disclaimer">[ JIKA SAAT ADMIN SLOW RESPON HARAP MAKLUM, BANYAK KERJAAN ]
-                            </p>
+                            <p class="mt-3 text-xs text-center text-gray-600 italic">[ JIKA SAAT ADMIN SLOW RESPON HARAP
+                                MAKLUM, BANYAK KERJAAN ]</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section-cta">
-        <div class="container">
-            <div class="cta-content glass-modern" data-aos="fade-up">
-                <h2 class="cta-title">💬 Siap Mulai Perjalanan Jadi Creator YouTube?</h2>
-                <p class="cta-text">
+
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-6">
+            <div class="glass-modern rounded-3xl p-10 text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5">💬 Siap Mulai Perjalanan Jadi Creator YouTube?</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
                     Dari nol sampai mahir, dari rumah sampai menghasilkan!<br>
-                    Investasi <del class="cta-old-price">Rp 1.500.000</del> <span class="cta-new-price">Rp
+                    Investasi <del class="text-red-500">Rp 1.500.000</del> <span class="font-bold gradient-text">Rp
                         750.000</span> untuk masa depan yang lebih cerah. 🚀
                 </p>
                 <a href="https://wa.me/6285842615683" target="_blank" rel="noopener noreferrer"
-                    class="btn-primary btn-gradient btn-large">
-                    <span class="btn-text">DAFTAR SEKARANG VIA WHATSAPP</span>
+                    class="btn-primary btn-gradient relative inline-flex items-center justify-center px-12 py-5 text-xl font-bold text-white rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0">
+                    <span class="relative z-10">DAFTAR SEKARANG VIA WHATSAPP</span>
                     <span class="btn-shine"></span>
                 </a>
             </div>
         </div>
     </section>
-    <section class="section-disclaimer">
-        <div class="container">
-            <div class="disclaimer-content">
-                <h3 class="disclaimer-title" data-aos="fade-up">‼️ CATATAN PENTING</h3>
-                <p class="disclaimer-intro" data-aos="fade-up" data-aos-delay="100">
+
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold text-center mb-5" data-aos="fade-up">‼️ CATATAN PENTING</h3>
+                <p class="text-center text-gray-700 mb-6 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
                     Dengan mengikuti Kelas Online YouTube - Yorishid Academy, Anda memahami dan menyetujui bahwa:
                 </p>
-                <ul class="disclaimer-list">
-                    <li data-aos="fade-up" data-aos-delay="200">
+                <ul class="space-y-0">
+                    <li class="py-3.5 pl-6 relative text-gray-700 leading-relaxed" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <span class="absolute left-0 text-2xl text-primary-600 font-bold">•</span>
                         <strong>TIDAK MENJAMIN PENGHASILAN INSTAN</strong> atau uang dalam jumlah besar secara tiba-tiba
                     </li>
-                    <li data-aos="fade-up" data-aos-delay="300">
+                    <li class="py-3.5 pl-6 relative text-gray-700 leading-relaxed" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <span class="absolute left-0 text-2xl text-primary-600 font-bold">•</span>
                         <strong>HASIL TERGANTUNG PADA USAHA, NIAT, DOA & KONSISTENSI</strong> dari Anda sendiri
                     </li>
-                    <li data-aos="fade-up" data-aos-delay="400">
+                    <li class="py-3.5 pl-6 relative text-gray-700 leading-relaxed" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <span class="absolute left-0 text-2xl text-primary-600 font-bold">•</span>
                         <strong>TIDAK ADA REFUND</strong> - mohon pikirkan matang-matang sebelum mendaftar
                     </li>
-                    <li data-aos="fade-up" data-aos-delay="500">
+                    <li class="py-3.5 pl-6 relative text-gray-700 leading-relaxed" data-aos="fade-up"
+                        data-aos-delay="500">
+                        <span class="absolute left-0 text-2xl text-primary-600 font-bold">•</span>
                         Kami memberikan materi dan strategi terbaik, namun hasil akhir tergantung pada penerapan Anda
                     </li>
                 </ul>
-                <p class="disclaimer-footer" data-aos="fade-up" data-aos-delay="600">
+                <p class="text-center italic text-gray-600 mt-6 leading-relaxed" data-aos="fade-up"
+                    data-aos-delay="600">
                     Kelas ini cocok untuk Anda yang serius, berkomitmen, dan siap bekerja keras untuk membangun channel
                     YouTube yang sukses.
                 </p>
             </div>
         </div>
     </section>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="./images/logo.jpg" alt="Logo YorishID Academy" class="footer-logo-img" width="48"
-                        height="48">
-                    <p class="footer-brand">YORISHID ACADEMY</p>
+
+    <footer class="bg-gradient-to-br from-primary to-[#000328] text-white py-10 relative">
+        <div class="pattern-grid absolute inset-0 pointer-events-none opacity-50"
+            style="background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <img src="./images/logo.jpg" alt="Logo YorishID Academy" class="w-12 h-12 rounded-lg object-cover"
+                        width="48" height="48">
+                    <p class="text-2xl font-extrabold tracking-tight">YORISHID ACADEMY</p>
                 </div>
-                <p class="footer-desc">Kelas Online YouTube - Saatnya Menjadi Creator YouTube! Mulai Dari Sekarang!</p>
-                <p class="footer-copyright">© <span id="year"></span> Yorishid Academy. All rights reserved.</p>
+                <p class="mb-4 text-white/90 max-w-2xl mx-auto">Kelas Online YouTube - Saatnya Menjadi Creator YouTube!
+                    Mulai Dari Sekarang!</p>
+                <p class="text-sm text-white/70">© <span id="year"></span> Yorishid Academy. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./scripts/script.js"></script>
 </body>

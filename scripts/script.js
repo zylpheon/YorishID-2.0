@@ -39,7 +39,8 @@ function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loading');
     if (loadingScreen) {
         setTimeout(() => {
-            loadingScreen.classList.add('hidden');
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.visibility = 'hidden';
             setTimeout(() => loadingScreen.remove(), CONFIG.animationDuration);
         }, 300);
     }
@@ -88,17 +89,19 @@ class Navigation {
     }
 
     openMobileMenu() {
-        this.mobileMenu.classList.add('open');
+        this.mobileMenu.style.maxHeight = '400px';
         this.mobileMenuBtn.classList.add('active');
-        this.menuOverlay.classList.add('active');
+        this.menuOverlay.style.opacity = '1';
+        this.menuOverlay.style.visibility = 'visible';
         document.body.style.overflow = 'hidden';
         this.mobileMenuBtn.setAttribute('aria-expanded', 'true');
     }
 
     closeMobileMenu() {
-        this.mobileMenu.classList.remove('open');
+        this.mobileMenu.style.maxHeight = '0';
         this.mobileMenuBtn.classList.remove('active');
-        this.menuOverlay.classList.remove('active');
+        this.menuOverlay.style.opacity = '0';
+        this.menuOverlay.style.visibility = 'hidden';
         document.body.style.overflow = '';
         this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
         this.isMenuOpen = false;
@@ -124,9 +127,11 @@ class Navigation {
     updateNavbarOnScroll() {
         const scrollY = window.pageYOffset;
         if (scrollY > 50) {
-            this.navbar.classList.add('scrolled');
+            this.navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            this.navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
         } else {
-            this.navbar.classList.remove('scrolled');
+            this.navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+            this.navbar.style.boxShadow = 'none';
         }
         this.lastScrollY = scrollY;
     }
@@ -175,102 +180,6 @@ class ScrollProgress {
     }
 }
 
-class AnimationObserver {
-    constructor() {
-        this.elements = document.querySelectorAll('[data-aos]');
-        this.init();
-    }
-
-    init() {
-        if (!('IntersectionObserver' in window)) {
-            this.elements.forEach(el => el.classList.add('aos-animate'));
-            return;
-        }
-        const options = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('aos-animate');
-                    if (entry.target.hasAttribute('data-aos-once') || true) {
-                        this.observer.unobserve(entry.target);
-                    }
-                }
-            });
-        }, options);
-        this.elements.forEach(el => this.observer.observe(el));
-    }
-}
-
-class ButtonEffects {
-    constructor() {
-        this.buttons = document.querySelectorAll('.btn-primary');
-        this.init();
-    }
-
-    init() {
-        this.buttons.forEach(button => {
-            button.addEventListener('click', (e) => this.createRipple(e));
-        });
-        this.addRippleCSS();
-    }
-
-    createRipple(event) {
-        const button = event.currentTarget;
-        const ripple = document.createElement('span');
-        const diameter = Math.max(button.clientWidth, button.clientHeight);
-        const radius = diameter / 2;
-        const rect = button.getBoundingClientRect();
-        ripple.style.width = ripple.style.height = `${diameter}px`;
-        ripple.style.left = `${event.clientX - rect.left - radius}px`;
-        ripple.style.top = `${event.clientY - rect.top - radius}px`;
-        ripple.classList.add('ripple');
-        const existingRipple = button.querySelector('.ripple');
-        if (existingRipple) {
-            existingRipple.remove();
-        }
-        button.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
-    }
-
-    addRippleCSS() {
-        if (document.getElementById('ripple-style')) return;
-        const style = document.createElement('style');
-        style.id = 'ripple-style';
-        style.textContent = `.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);transform:scale(0);animation:rippleEffect 0.6s ease-out;pointer-events:none}@keyframes rippleEffect{to{transform:scale(4);opacity:0}}`;
-        document.head.appendChild(style);
-    }
-}
-
-class ResponsiveHandler {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        this.handleResize();
-        window.addEventListener('resize', debounce(() => {
-            this.handleResize();
-        }, 250));
-    }
-
-    handleResize() {
-        const width = window.innerWidth;
-        if (width < CONFIG.breakpoints.tablet) {
-            this.simplifyAnimationsOnMobile();
-        }
-    }
-
-    simplifyAnimationsOnMobile() {
-        const elementsWithDelay = document.querySelectorAll('[data-aos-delay]');
-        elementsWithDelay.forEach(el => {
-            el.removeAttribute('data-aos-delay');
-        });
-    }
-}
-
 class App {
     constructor() {
         this.init();
@@ -296,9 +205,6 @@ class App {
         }
         new Navigation();
         new ScrollProgress();
-        new AnimationObserver();
-        new ButtonEffects();
-        new ResponsiveHandler();
         hideLoadingScreen();
         const yearElement = document.getElementById('year');
         if (yearElement) {
