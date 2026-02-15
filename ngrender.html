@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngrender Pro V2.8 - Buat Video Kompilasi & Live Stream dalam Hitungan Menit!</title>
+    <meta name="description"
+        content="Software pembuat video kompilasi musik otomatis. Gabungkan audio + video, buat playlist, timestamps, overlay judul lagu - semua dalam beberapa klik!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles/ngrender.css">
+</head>
+
+<body class="bg-slate-950 text-slate-100">
+    <nav class="fixed top-0 left-0 right-0 bg-slate-950/95 backdrop-blur-lg border-b border-slate-800 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold">Ngrender<span class="text-emerald-400">Pro</span></a>
+                <ul class="hidden md:flex items-center gap-8 text-sm font-semibold">
+                    <li><a href="#features" class="hover:text-emerald-400 transition">Fitur</a></li>
+                    <li><a href="#demo" class="hover:text-emerald-400 transition">Demo</a></li>
+                    <li><a href="#pricing" class="hover:text-emerald-400 transition">Harga</a></li>
+                    <li><a href="#faq" class="hover:text-emerald-400 transition">FAQ</a></li>
+                    <li><a href="#pricing"
+                            class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg transition">Beli
+                            Sekarang</a></li>
+                    <li><a href="index.html"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">YorishID</a>
+                    </li>
+                </ul>
+                <button class="md:hidden text-2xl" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="md:hidden fixed inset-0 bg-slate-950/98 z-40 transform translate-x-full transition-transform duration-300"
+        id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full gap-8 text-lg font-semibold">
+            <a href="#features" class="hover:text-emerald-400 transition mobile-link">Fitur</a>
+            <a href="#demo" class="hover:text-emerald-400 transition mobile-link">Demo</a>
+            <a href="#pricing" class="hover:text-emerald-400 transition mobile-link">Harga</a>
+            <a href="#faq" class="hover:text-emerald-400 transition mobile-link">FAQ</a>
+            <a href="#pricing"
+                class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition mobile-link">Beli
+                Sekarang</a>
+            <a href="index.html"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition mobile-link">YorishID</a>
+        </div>
+    </div>
+
+    <section id="hero" class="pt-32 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-radial from-emerald-500/10 via-transparent to-transparent opacity-50">
+        </div>
+        <div class="container mx-auto max-w-5xl relative z-10">
+            <div class="text-center">
+                <span
+                    class="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-semibold px-6 py-2 rounded-full mb-6">🎉
+                    V2.8 - Fitur Baru: Overlay Judul Lagu Dinamis!</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Buat Video Kompilasi Musik<br><span
+                        class="text-emerald-400">dalam Hitungan Menit</span></h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto">Gabungkan ratusan lagu dengan video
+                    looping, lengkap dengan playlist otomatis, timestamps YouTube, overlay judul lagu, dan transisi
+                    profesional. Sempurna untuk upload atau live stream 24/7!</p>
+                <div class="flex flex-wrap justify-center gap-4 mb-6">
+                    <button class="btn-primary" onclick="buyNow()">
+                        <i class="fab fa-whatsapp"></i> Beli Sekarang - Rp 400.000
+                    </button>
+                    <a href="#demo" class="btn-secondary">
+                        <i class="fas fa-play"></i> Lihat Demo
+                    </a>
+                </div>
+                <p class="text-sm text-slate-400">
+                    <strong class="text-emerald-400">Sekali Bayar, Pakai Selamanya!</strong> • Update Gratis • Support
+                    via Telegram
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-10 border-t border-slate-800">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-400 mb-2">50+</div>
+                        <div class="text-sm text-slate-400">Fitur Lengkap</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-400 mb-2">6</div>
+                        <div class="text-sm text-slate-400">GPU Encoder</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-400 mb-2">3</div>
+                        <div class="text-sm text-slate-400">Mode Render</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-400 mb-2">24/7</div>
+                        <div class="text-sm text-slate-400">Live Stream Ready</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem" class="py-20 px-6 bg-slate-900/50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Apakah Ini yang <span
+                    class="text-emerald-400">Anda Alami?</span></h2>
+            <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Membuat video kompilasi musik seharusnya tidak
+                memakan waktu berjam-jam</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 flex items-start gap-4">
+                    <i class="fas fa-clock text-red-400 text-xl mt-1"></i>
+                    <p class="text-sm">Menghabiskan berjam-jam menggabungkan audio dan video secara manual?</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 flex items-start gap-4">
+                    <i class="fas fa-list-ol text-red-400 text-xl mt-1"></i>
+                    <p class="text-sm">Repot membuat timestamps dan daftar lagu secara manual?</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 flex items-start gap-4">
+                    <i class="fas fa-tv text-red-400 text-xl mt-1"></i>
+                    <p class="text-sm">Kesulitan menyiapkan video untuk live streaming 24/7?</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 flex items-start gap-4">
+                    <i class="fas fa-film text-red-400 text-xl mt-1"></i>
+                    <p class="text-sm">Ingin menambahkan intro/outro tapi prosesnya rumit?</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 flex items-start gap-4">
+                    <i class="fas fa-tasks text-red-400 text-xl mt-1"></i>
+                    <p class="text-sm">Perlu memproses banyak video sekaligus secara otomatis?</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 flex items-start gap-4">
+                    <i class="fas fa-music text-red-400 text-xl mt-1"></i>
+                    <p class="text-sm">Ingin menampilkan judul lagu di video secara dinamis?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Fitur Lengkap untuk <span
+                    class="text-emerald-400">Kreator Konten</span></h2>
+            <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Semua yang Anda butuhkan untuk membuat video
+                kompilasi profesional dalam satu aplikasi</p>
+
+            <div
+                class="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 rounded-2xl p-8 mb-12">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <i class="fas fa-sparkles text-indigo-400"></i> Fitur Baru di V2.8
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check text-emerald-400 mt-1"></i>
+                        <div class="text-sm"><strong class="text-slate-200">Overlay Judul Lagu Dinamis</strong> -
+                            Tampilkan judul lagu di awal setiap lagu secara otomatis</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check text-emerald-400 mt-1"></i>
+                        <div class="text-sm"><strong class="text-slate-200">Mode Audio Intro/Outro</strong> - Normal,
+                            Seamless, atau Campuran dengan kontrol volume</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check text-emerald-400 mt-1"></i>
+                        <div class="text-sm"><strong class="text-slate-200">Pertahankan Audio Video</strong> - Campur
+                            audio asli video dengan playlist musik</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check text-emerald-400 mt-1"></i>
+                        <div class="text-sm"><strong class="text-slate-200">GIF Animated Overlay</strong> - Support GIF
+                            sebagai overlay transparan</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check text-emerald-400 mt-1"></i>
+                        <div class="text-sm"><strong class="text-slate-200">Preview Judul Lagu</strong> - Lihat preview
+                            sebelum render</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check text-emerald-400 mt-1"></i>
+                        <div class="text-sm"><strong class="text-slate-200">Optimasi Render 4K</strong> - Master+Copy
+                            strategy untuk render cepat</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Gabung Audio + Video Otomatis</h3>
+                    <p class="text-sm text-slate-400">Gabungkan ratusan lagu dengan video looping. Video di-loop
+                        otomatis mengikuti durasi total audio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Timestamps & Playlist PNG</h3>
+                    <p class="text-sm text-slate-400">Generate timestamps YouTube dan playlist PNG otomatis dengan font,
+                        warna, dan layout kustom.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heading"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Overlay Judul Lagu</h3>
+                    <p class="text-sm text-slate-400">Tampilkan judul lagu secara dinamis di awal setiap lagu. 9 posisi,
+                        custom font & warna.</p>
+                    <span class="new-badge">NEW V2.8</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Intro & Outro Video</h3>
+                    <p class="text-sm text-slate-400">Tambahkan video pembuka dan penutup dengan 3 mode audio: Normal,
+                        Seamless, atau Campuran.</p>
+                    <span class="new-badge">NEW V2.8</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Multi-Overlay Support</h3>
+                    <p class="text-sm text-slate-400">PNG transparan, GIF animated, video greenscreen/blackscreen dengan
+                        kontrol similarity & blend.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Batch & Mass Processing</h3>
+                    <p class="text-sm text-slate-400">Proses banyak video sekaligus. Mass Batch untuk variasi output
+                        dengan urutan acak.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Kontrol Resolusi & FPS</h3>
+                    <p class="text-sm text-slate-400">720p, 1080p, 4K, Vertikal (Shorts). FPS 24/25/30/50/60 dengan
+                        konsistensi otomatis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Live Stream Ready (CBR)</h3>
+                    <p class="text-sm text-slate-400">Mode CBR dengan keyframe interval untuk live streaming 24/7 sesuai
+                        standar YouTube.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">GPU Acceleration</h3>
+                    <p class="text-sm text-slate-400">NVIDIA NVENC, AMD AMF, Intel QSV - render hingga 5x lebih cepat
+                        dengan GPU.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-20 px-6 bg-slate-900/50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Hanya <span class="text-emerald-400">3
+                    Langkah</span> Sederhana</h2>
+            <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Dari aset mentah ke video profesional dalam
+                hitungan menit</p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto relative">
+                <div
+                    class="hidden md:block absolute top-1/4 left-1/4 right-1/4 h-1 bg-gradient-to-r from-emerald-500 to-emerald-400">
+                </div>
+                <div class="text-center relative z-10">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg shadow-emerald-500/50">
+                        1</div>
+                    <h3 class="text-xl font-semibold mb-3">Siapkan Aset</h3>
+                    <p class="text-sm text-slate-400">Pilih folder audio, tambahkan video/gambar background, dan muat
+                        konfigurasi jika ada.</p>
+                </div>
+                <div class="text-center relative z-10">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg shadow-emerald-500/50">
+                        2</div>
+                    <h3 class="text-xl font-semibold mb-3">Atur Pengaturan</h3>
+                    <p class="text-sm text-slate-400">Pilih resolusi, FPS, overlay, transisi, dan fitur lainnya sesuai
+                        kebutuhan.</p>
+                </div>
+                <div class="text-center relative z-10">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg shadow-emerald-500/50">
+                        3</div>
+                    <h3 class="text-xl font-semibold mb-3">Render & Selesai!</h3>
+                    <p class="text-sm text-slate-400">Klik START dan dapatkan video profesional siap upload atau live
+                        stream.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Lihat <span class="text-emerald-400">Demo</span>
+                Langsung</h2>
+            <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Tonton bagaimana Ngrender Pro membuat video
+                kompilasi dalam hitungan menit</p>
+            <div class="max-w-4xl mx-auto aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl">
+                <iframe src="https://www.youtube.com/embed/agI_dNT_63g" title="Ngrender Pro Demo" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen class="w-full h-full"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 px-6 bg-slate-900/50">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Investasi Sekali, <span
+                    class="text-emerald-400">Pakai Selamanya</span></h2>
+            <p class="text-center text-slate-400 mb-12">Lupakan biaya langganan bulanan yang mahal</p>
+
+            <div class="pricing-card relative">
+                <div
+                    class="absolute top-5 right-5 bg-amber-500 text-black text-xs font-bold px-4 py-1 rounded-full transform rotate-12">
+                    BEST VALUE</div>
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold mb-4">Lisensi Personal</h3>
+                    <p class="text-lg text-slate-400 line-through mb-2">Rp 750.000</p>
+                    <div class="text-5xl font-bold text-emerald-400 mb-2">Rp 400.000</div>
+                    <p class="text-sm text-slate-400">Sekali bayar, tanpa biaya bulanan/tahunan</p>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Gabungkan unlimited video & audio</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm"><strong class="text-amber-400">V2.8:</strong> Overlay judul lagu
+                            dinamis</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm"><strong class="text-amber-400">V2.8:</strong> Mode audio intro/outro (3
+                            mode)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm"><strong class="text-amber-400">V2.8:</strong> Pertahankan audio
+                            video</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Batch & Mass Processing</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Timestamps & Playlist PNG otomatis dengan preview</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Transisi profesional antar video</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">GPU Encoder (NVENC/AMF/QSV)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Resolusi hingga 4K</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Live Stream Ready (CBR)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Lisensi seumur hidup (1 PC)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Update gratis selamanya</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+                        <span class="text-sm">Support via Telegram</span>
+                    </li>
+                </ul>
+
+                <button class="btn-primary w-full justify-center" onclick="buyNow()">
+                    <i class="fab fa-whatsapp"></i> Beli Sekarang - Rp 400.000
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="requirements" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Spesifikasi <span
+                    class="text-emerald-400">Sistem</span></h2>
+            <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Pastikan PC Anda memenuhi persyaratan untuk
+                performa optimal</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-laptop text-emerald-400"></i> Minimum
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            Windows 10/11 64-bit
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            Intel Core i5 (Gen 6) / AMD Ryzen 3
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            RAM 8 GB
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            Storage 20 GB (SSD disarankan)
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            FFmpeg sudah disertakan
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-rocket text-emerald-400"></i> Rekomendasi
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            Intel Core i7 / AMD Ryzen 5+
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            RAM 16 GB+
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            SSD NVMe
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            NVIDIA GTX 1660+ / AMD RX 6600+
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            Untuk render 4K & batch processing
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-microchip text-emerald-400"></i> GPU Encoder
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            NVIDIA: h264_nvenc, hevc_nvenc, av1_nvenc
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            AMD: h264_amf, hevc_amf, av1_amf
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            Intel: h264_qsv, hevc_qsv, av1_qsv
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+                            Fallback otomatis ke CPU jika tidak ada GPU
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 px-6 bg-slate-900/50">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Pertanyaan <span
+                    class="text-emerald-400">Umum</span></h2>
+            <p class="text-center text-slate-400 mb-12">Jawaban untuk pertanyaan yang sering diajukan</p>
+
+            <div class="space-y-4">
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Apa itu Ngrender Pro?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        Ngrender Pro adalah software Windows untuk membuat video kompilasi musik secara otomatis.
+                        Gabungkan ratusan lagu dengan video looping, lengkap dengan playlist, timestamps, overlay judul
+                        lagu, dan transisi profesional - semua dalam beberapa klik.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Apa bedanya VBR dan CBR?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        <strong>VBR (Variable Bitrate)</strong> - Ideal untuk upload YouTube biasa. Ukuran file efisien
+                        dengan kualitas visual terjaga.<br><strong>CBR (Constant Bitrate)</strong> - Untuk live
+                        streaming 24/7. Bitrate konstan dengan keyframe interval sesuai standar YouTube.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Bagaimana cara kerja Overlay Judul Lagu?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        Fitur ini menampilkan judul lagu secara dinamis di awal setiap lagu. Anda bisa mengatur durasi
+                        tampil, posisi (9 pilihan), font, ukuran, dan warna. Preview tersedia sebelum render.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Apakah PNG manual bisa di-preview sebelum render?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        Ya! Anda bisa preview PNG manual sebelum render untuk memastikan tampilan playlist sudah sesuai
+                        keinginan. Fitur preview membantu Anda melihat hasil akhir sebelum melakukan render penuh.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Apa itu Batch Processing?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        Batch Processing memungkinkan Anda memproses banyak video sekaligus. <strong>Classic
+                            Batch</strong> untuk video per batch, <strong>Mass Batch</strong> untuk membuat banyak
+                        output dengan variasi urutan video & audio yang diacak.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Apakah bisa untuk TikTok/Reels/Shorts?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        Tentu! Pilih resolusi "Video Vertikal (1080x1920)" dan aplikasi akan menghasilkan video dalam
+                        format vertikal yang sempurna untuk platform short-form video.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Apakah ini sekali bayar?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        Ya! Cukup bayar Rp 400.000 sekali, dan Anda mendapatkan lisensi seumur hidup untuk 1 PC.
+                        Termasuk update gratis selamanya dan support via Telegram.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 cursor-pointer font-semibold hover:bg-slate-800 transition">
+                        Apakah tersedia untuk Mac/Linux?
+                    </summary>
+                    <div class="p-5 text-sm text-slate-300 border-x border-b border-slate-700 rounded-b-xl">
+                        Saat ini Ngrender Pro hanya tersedia untuk Windows 10/11 64-bit. Versi Mac/Linux belum tersedia.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 bg-slate-950 border-t border-slate-800">
+        <div class="container mx-auto text-center">
+            <p class="font-bold text-lg mb-2">Ngrender Pro V2.8 <span class="text-slate-500">by Omahbot</span></p>
+            <p class="text-sm text-slate-400">© <span id="year"></span> All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="./scripts/ngrender.js"></script>
+</body>
+
+</html>

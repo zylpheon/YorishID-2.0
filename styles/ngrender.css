@@ -1,0 +1,63 @@
+.bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+.btn-primary {
+    @apply inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-1;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center gap-2 bg-transparent border-2 border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-white font-bold px-8 py-4 rounded-xl transition-all duration-300;
+}
+
+.feature-card {
+    @apply bg-slate-800/50 border border-slate-700 rounded-xl p-6 transition-all duration-300 hover:bg-slate-800 hover:border-emerald-500/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/10;
+}
+
+.feature-icon {
+    @apply w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4 shadow-lg;
+}
+
+.new-badge {
+    @apply inline-block mt-3 bg-amber-500 text-black text-xs font-bold px-3 py-1 rounded-full;
+}
+
+.pricing-card {
+    @apply bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-indigo-500/50 rounded-2xl p-8 shadow-2xl;
+}
+
+.faq-item[open] summary {
+    @apply bg-slate-800 border-emerald-500/50;
+}
+
+details summary::marker {
+    content: none;
+    display: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary::after {
+    content: '+';
+    @apply absolute right-5 text-2xl text-emerald-400 transition-transform;
+}
+
+details[open] summary::after {
+    content: '−';
+    transform: rotate(0deg);
+}
+
+details summary {
+    position: relative;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+
+    .btn-primary,
+    .btn-secondary {
+        @apply w-full justify-center;
+    }
+}
