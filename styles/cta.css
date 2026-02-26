@@ -1,0 +1,67 @@
+/* ── CTA Section ─────────────────────────────────────────── */
+#cta {
+    background: var(--dark);
+    padding: 96px 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+#cta .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(26, 144, 240, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 144, 240, .05) 1px, transparent 1px);
+    background-size: 56px 56px;
+}
+
+#cta .bg-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(26, 144, 240, .1) 0%, transparent 60%);
+}
+
+#cta .inner {
+    max-width: 660px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+#cta h2 {
+    font-family: var(--font-d);
+    font-size: clamp(28px, 5vw, 50px);
+    font-weight: 800;
+    color: white;
+    letter-spacing: -.025em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+#cta p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, .48);
+    line-height: 1.75;
+    margin-bottom: 36px;
+}
+
+#cta .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue);
+    color: white;
+    font-family: var(--font-b);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 17px 36px;
+    border-radius: 12px;
+    transition: all .25s ease;
+}
+
+#cta .cta-btn:hover {
+    background: var(--blue-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(26, 144, 240, .35);
+}

@@ -1,0 +1,170 @@
+/* ── Pricing ─────────────────────────────────────────────── */
+#pricing {
+    background: var(--surface);
+}
+
+.pricing-card {
+    max-width: 660px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 8px 56px rgba(0, 82, 165, .08);
+}
+
+.pricing-header {
+    background: var(--dark);
+    padding: 44px 44px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-header .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(26, 144, 240, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 144, 240, .07) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.pricing-header .content {
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(90, 180, 255, .1);
+    border: 1px solid rgba(90, 180, 255, .22);
+    color: var(--blue-light);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+}
+
+.pricing-name {
+    font-family: var(--font-d);
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 22px;
+    line-height: 1.3;
+}
+
+.pricing-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.pricing-price-main {
+    font-family: var(--font-d);
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.pricing-price-note {
+    margin-top: 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, .38);
+}
+
+.pricing-body {
+    padding: 40px 44px;
+}
+
+.pricing-includes-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 20px;
+}
+
+.check-list {
+    list-style: none;
+}
+
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-2);
+    font-size: 14.5px;
+    line-height: 1.5;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item svg {
+    color: var(--blue);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* ── Payment Boxes ───────────────────────────────────────── */
+.payment-box {
+    margin-top: 32px;
+    background: var(--blue-faint);
+    border: 1px solid var(--border-2);
+    border-radius: 14px;
+    padding: 26px;
+}
+
+.payment-box+.payment-box {
+    margin-top: 14px;
+}
+
+.payment-box-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+}
+
+.payment-box-head svg {
+    color: var(--blue);
+}
+
+.account-number {
+    font-family: var(--font-d);
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: .04em;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.account-name {
+    font-size: 13px;
+    color: var(--text-2);
+}
+
+.wa-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-3);
+    text-align: center;
+    font-style: italic;
+}

@@ -1,0 +1,64 @@
+/* ── GSAP Initial States ─────────────────────────────────── */
+.gs-fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+}
+
+.gs-fade-in {
+    opacity: 0;
+}
+
+.gs-stagger {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .section {
+        padding: 72px 20px;
+    }
+
+    #home {
+        padding: 80px 20px 72px;
+    }
+
+    .pricing-body {
+        padding: 32px 24px;
+    }
+
+    .pricing-header {
+        padding: 36px 24px 32px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .whom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #cta {
+        padding: 72px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-price-box {
+        padding: 16px 22px;
+        gap: 10px;
+    }
+
+    .hero-price-main {
+        font-size: 30px;
+    }
+}

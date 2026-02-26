@@ -1,0 +1,78 @@
+/* ── Section Label ───────────────────────────────────────── */
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--blue-bright);
+    margin-bottom: 14px;
+}
+
+.section-label::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--blue-bright);
+    border-radius: 2px;
+}
+
+.section-heading {
+    font-family: var(--font-d);
+    font-size: clamp(26px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.025em;
+    line-height: 1.12;
+}
+
+.section-heading.light {
+    color: white;
+}
+
+/* ── Generic Section Layout ──────────────────────────────── */
+.section {
+    padding: 96px 28px;
+}
+
+.section-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 56px;
+}
+
+.section-header.centered {
+    text-align: center;
+}
+
+.section-header p {
+    margin-top: 12px;
+    font-size: 16px;
+    color: var(--text-2);
+    line-height: 1.7;
+}
+
+.section-header.centered p {
+    max-width: 520px;
+    margin: 12px auto 0;
+}
+
+/* ── Icon Box ─────────────────────────────────────────────── */
+.icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--blue-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    flex-shrink: 0;
+    transition: all .3s ease;
+}

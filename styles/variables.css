@@ -1,0 +1,52 @@
+/* ── Variables ─────────────────────────────────────────── */
+:root {
+    --dark: #00091A;
+    --dark-2: #000E28;
+    --dark-3: #001540;
+    --blue: #0052A5;
+    --blue-mid: #0A6FD4;
+    --blue-bright: #1A90F0;
+    --blue-light: #5AB4FF;
+    --blue-pale: #E0EDFF;
+    --blue-faint: #F0F7FF;
+    --surface: #F4F8FC;
+    --white: #FFFFFF;
+    --text: #060F1E;
+    --text-2: #3D5278;
+    --text-3: #7A97BA;
+    --border: #C5D8F0;
+    --border-2: #E0ECFA;
+    --font-d: 'Syne', sans-serif;
+    --font-b: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ── Reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-b);
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngrender Pro V2.8 - Buat Video Kompilasi & Live Stream dalam Hitungan Menit!</title>
-    <meta name="description" content="Software pembuat video kompilasi musik otomatis. Gabungkan audio + video, buat playlist, timestamps, overlay judul lagu - semua dalam beberapa klik!">
-    
+    <meta name="description"
+        content="Software pembuat video kompilasi musik otomatis. Gabungkan audio + video, buat playlist, timestamps, overlay judul lagu - semua dalam beberapa klik!">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -24,10 +28,54 @@
             --text-muted: #94a3b8;
             --border-color: #334155;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Open Sans', sans-serif; background-color: var(--dark-bg); color: var(--text-light); line-height: 1.7; }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 2000;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(10px);
+            color: #f1f5f9;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-btn:hover {
+            background: rgba(30, 41, 59, 0.98);
+            border-color: #10b981;
+            color: #10b981;
+            transform: translateY(-2px);
+        }
+
         /* Navigation */
         .navbar {
             position: fixed;
@@ -40,11 +88,13 @@
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
+
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
@@ -52,36 +102,88 @@
             color: var(--text-light);
             text-decoration: none;
         }
-        .logo span { color: var(--primary-color); }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
         }
+
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--primary-color); }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
         .nav-cta {
             background: var(--primary-color);
             color: white !important;
             padding: 10px 20px;
             border-radius: 8px;
         }
-        .nav-cta:hover { background: var(--primary-hover); }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 100px 0; }
-        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.3; }
-        h1 { font-size: 3.5rem; color: #ffffff; font-weight: 800; }
-        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 20px; color: #ffffff; }
-        h2 span { color: var(--primary-color); }
-        .section-subtitle { text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 50px; font-size: 1.1rem; }
-        p { margin-bottom: 15px; color: var(--text-muted); }
-        
+
+        .nav-cta:hover {
+            background: var(--primary-hover);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        h2 span {
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
         /* Buttons */
         .cta-button {
             display: inline-flex;
@@ -100,21 +202,24 @@
             border: none;
             cursor: pointer;
         }
+
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
         }
+
         .cta-secondary {
             background: transparent;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
             box-shadow: none;
         }
+
         .cta-secondary:hover {
             background: var(--primary-color);
             color: white;
         }
-        
+
         /* Hero Section */
         #hero {
             text-align: center;
@@ -123,6 +228,7 @@
             position: relative;
             overflow: hidden;
         }
+
         #hero::before {
             content: '';
             position: absolute;
@@ -134,6 +240,7 @@
             background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .hero-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--secondary-color), #8b5cf6);
@@ -144,7 +251,11 @@
             font-weight: 600;
             margin-bottom: 25px;
         }
-        #hero h1 { margin-bottom: 25px; }
+
+        #hero h1 {
+            margin-bottom: 25px;
+        }
+
         #hero .sub-headline {
             max-width: 800px;
             margin: 0 auto 40px;
@@ -152,6 +263,7 @@
             color: var(--text-muted);
             line-height: 1.8;
         }
+
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -159,12 +271,16 @@
             gap: 15px;
             margin-bottom: 30px;
         }
+
         .hero-note {
             font-size: 0.9rem;
             color: var(--text-muted);
         }
-        .hero-note strong { color: var(--primary-color); }
-        
+
+        .hero-note strong {
+            color: var(--primary-color);
+        }
+
         /* Stats */
         .stats-bar {
             display: flex;
@@ -174,17 +290,28 @@
             padding-top: 40px;
             border-top: 1px solid var(--border-color);
         }
-        .stat-item { text-align: center; }
+
+        .stat-item {
+            text-align: center;
+        }
+
         .stat-number {
             font-family: 'Poppins', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--primary-color);
         }
-        .stat-label { color: var(--text-muted); font-size: 0.95rem; }
-        
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
         /* Problem Section */
-        #problem { background: var(--dark-bg); }
+        #problem {
+            background: var(--dark-bg);
+        }
+
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -192,6 +319,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
+
         .problem-item {
             display: flex;
             align-items: flex-start;
@@ -201,20 +329,29 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
         }
+
         .problem-item i {
             color: #ef4444;
             font-size: 1.3rem;
             margin-top: 3px;
         }
-        .problem-item p { margin: 0; color: var(--text-light); }
-        
+
+        .problem-item p {
+            margin: 0;
+            color: var(--text-light);
+        }
+
         /* Features Section */
-        #features { background: var(--dark-card-bg); }
+        #features {
+            background: var(--dark-card-bg);
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
         }
+
         .feature-card {
             background: var(--dark-bg);
             padding: 30px;
@@ -222,11 +359,13 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
+
         .feature-card:hover {
             transform: translateY(-5px);
             border-color: var(--secondary-color);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
+
         .feature-icon {
             width: 60px;
             height: 60px;
@@ -237,13 +376,23 @@
             justify-content: center;
             margin-bottom: 20px;
         }
-        .feature-icon i { font-size: 1.5rem; color: white; }
+
+        .feature-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
         .feature-card h3 {
             font-size: 1.2rem;
             color: var(--text-light);
             margin-bottom: 12px;
         }
-        .feature-card p { font-size: 0.95rem; margin: 0; }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
         .feature-tag {
             display: inline-block;
             background: var(--accent-color);
@@ -254,7 +403,7 @@
             font-weight: 700;
             margin-top: 15px;
         }
-        
+
         /* New Features Highlight */
         .new-features {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
@@ -263,6 +412,7 @@
             padding: 40px;
             margin-bottom: 50px;
         }
+
         .new-features h3 {
             color: var(--secondary-color);
             font-size: 1.3rem;
@@ -271,27 +421,40 @@
             align-items: center;
             gap: 10px;
         }
+
         .new-features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
+
         .new-feature-item {
             display: flex;
             align-items: flex-start;
             gap: 12px;
         }
-        .new-feature-item i { color: var(--primary-color); margin-top: 4px; }
-        .new-feature-item strong { color: var(--text-light); }
-        
+
+        .new-feature-item i {
+            color: var(--primary-color);
+            margin-top: 4px;
+        }
+
+        .new-feature-item strong {
+            color: var(--text-light);
+        }
+
         /* How It Works */
-        #how-it-works { background: var(--dark-bg); }
+        #how-it-works {
+            background: var(--dark-bg);
+        }
+
         .steps-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             position: relative;
         }
+
         .steps-container::before {
             content: '';
             position: absolute;
@@ -302,11 +465,13 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             z-index: 0;
         }
+
         .step {
             text-align: center;
             position: relative;
             z-index: 1;
         }
+
         .step-number {
             width: 80px;
             height: 80px;
@@ -322,10 +487,18 @@
             color: white;
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
         }
-        .step h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-light); }
-        
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
         /* Video Section */
-        #demo { background: var(--dark-card-bg); }
+        #demo {
+            background: var(--dark-card-bg);
+        }
+
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -337,6 +510,7 @@
             border-radius: 16px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
+
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -345,9 +519,12 @@
             height: 100%;
             border: 0;
         }
-        
+
         /* Pricing Section */
-        #pricing { background: var(--dark-bg); }
+        #pricing {
+            background: var(--dark-bg);
+        }
+
         .pricing-card {
             background: linear-gradient(135deg, var(--dark-card-bg), #1a2744);
             max-width: 550px;
@@ -360,6 +537,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .pricing-card::before {
             content: 'BEST VALUE';
             position: absolute;
@@ -372,12 +550,18 @@
             font-weight: 700;
             transform: rotate(45deg);
         }
-        .pricing-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
         .pricing-card .old-price {
             font-size: 1.3rem;
             text-decoration: line-through;
             color: var(--text-muted);
         }
+
         .pricing-card .price {
             font-size: 4rem;
             font-weight: 800;
@@ -385,15 +569,18 @@
             color: var(--primary-color);
             margin: 10px 0;
         }
+
         .pricing-card .price-note {
             color: var(--text-muted);
             margin-bottom: 30px;
         }
+
         .value-list {
             list-style: none;
             margin: 30px 0;
             text-align: left;
         }
+
         .value-list li {
             margin-bottom: 15px;
             display: flex;
@@ -401,22 +588,34 @@
             gap: 12px;
             font-size: 1rem;
         }
-        .value-list i { color: var(--primary-color); margin-top: 4px; }
-        .value-list strong { color: var(--accent-color); }
-        
+
+        .value-list i {
+            color: var(--primary-color);
+            margin-top: 4px;
+        }
+
+        .value-list strong {
+            color: var(--accent-color);
+        }
+
         /* Requirements */
-        #requirements { background: var(--dark-card-bg); }
+        #requirements {
+            background: var(--dark-card-bg);
+        }
+
         .req-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
+
         .req-card {
             background: var(--dark-bg);
             padding: 30px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
         }
+
         .req-card h3 {
             display: flex;
             align-items: center;
@@ -424,8 +623,15 @@
             margin-bottom: 20px;
             color: var(--text-light);
         }
-        .req-card h3 i { color: var(--secondary-color); }
-        .req-list { list-style: none; }
+
+        .req-card h3 i {
+            color: var(--secondary-color);
+        }
+
+        .req-list {
+            list-style: none;
+        }
+
         .req-list li {
             display: flex;
             align-items: flex-start;
@@ -433,11 +639,23 @@
             margin-bottom: 12px;
             color: var(--text-muted);
         }
-        .req-list i { color: var(--primary-color); margin-top: 4px; font-size: 0.9rem; }
-        
+
+        .req-list i {
+            color: var(--primary-color);
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+
         /* FAQ */
-        #faq { background: var(--dark-bg); }
-        .faq-container { max-width: 800px; margin: 0 auto; }
+        #faq {
+            background: var(--dark-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .faq-item {
             background: var(--dark-card-bg);
             margin-bottom: 15px;
@@ -445,7 +663,11 @@
             border: 1px solid var(--border-color);
             overflow: hidden;
         }
-        .faq-item[open] { border-color: var(--primary-color); }
+
+        .faq-item[open] {
+            border-color: var(--primary-color);
+        }
+
         .faq-item summary {
             padding: 22px 25px;
             font-size: 1.1rem;
@@ -456,7 +678,11 @@
             position: relative;
             list-style: none;
         }
-        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
         .faq-item summary::after {
             content: '+';
             position: absolute;
@@ -465,13 +691,17 @@
             color: var(--primary-color);
             transition: transform 0.3s ease;
         }
-        .faq-item[open] summary::after { content: '−'; }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
         .faq-content {
             padding: 0 25px 22px;
             color: var(--text-muted);
             line-height: 1.8;
         }
-        
+
         /* Footer */
         footer {
             text-align: center;
@@ -479,26 +709,84 @@
             background: var(--dark-card-bg);
             border-top: 1px solid var(--border-color);
         }
-        footer p { margin: 5px 0; }
-        footer a { color: var(--primary-color); text-decoration: none; }
-        
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .navbar .container { flex-direction: column; gap: 15px; }
-            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            section { padding: 70px 0; }
-            #hero { padding: 140px 0 70px; }
-            .stats-bar { flex-direction: column; gap: 30px; }
-            .steps-container { grid-template-columns: 1fr; }
-            .steps-container::before { display: none; }
-            .pricing-card { padding: 30px 20px; }
-            .pricing-card .price { font-size: 3rem; }
+            .navbar .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            #hero {
+                padding: 140px 0 70px;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container::before {
+                display: none;
+            }
+
+            .pricing-card {
+                padding: 30px 20px;
+            }
+
+            .pricing-card .price {
+                font-size: 3rem;
+            }
+
+            .back-btn {
+                bottom: 20px;
+                left: 16px;
+            }
         }
     </style>
 </head>
+
 <body>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Kembali ke Beranda
+    </a>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -518,9 +806,11 @@
     <section id="hero">
         <div class="container">
             <span class="hero-badge">🎉 V2.8 - Fitur Baru: Overlay Judul Lagu Dinamis!</span>
-            <h1>Buat Video Kompilasi Musik<br><span style="color: var(--primary-color);">dalam Hitungan Menit</span></h1>
+            <h1>Buat Video Kompilasi Musik<br><span style="color: var(--primary-color);">dalam Hitungan Menit</span>
+            </h1>
             <p class="sub-headline">
-                Gabungkan ratusan lagu dengan video looping, lengkap dengan playlist otomatis, timestamps YouTube, overlay judul lagu, dan transisi profesional. Sempurna untuk upload atau live stream 24/7!
+                Gabungkan ratusan lagu dengan video looping, lengkap dengan playlist otomatis, timestamps YouTube,
+                overlay judul lagu, dan transisi profesional. Sempurna untuk upload atau live stream 24/7!
             </p>
             <div class="hero-buttons">
                 <button class="cta-button" onclick="buyNow()">
@@ -533,7 +823,7 @@
             <p class="hero-note">
                 <strong>Sekali Bayar, Pakai Selamanya!</strong> • Update Gratis • Support via Telegram
             </p>
-            
+
             <div class="stats-bar">
                 <div class="stat-item">
                     <div class="stat-number">50+</div>
@@ -589,29 +879,31 @@
         </div>
     </section>
 
-    
-
     <!-- Features Section -->
     <section id="features">
         <div class="container">
             <h2>Fitur Lengkap untuk <span>Kreator Konten</span></h2>
-            <p class="section-subtitle">Semua yang Anda butuhkan untuk membuat video kompilasi profesional dalam satu aplikasi</p>
-            
+            <p class="section-subtitle">Semua yang Anda butuhkan untuk membuat video kompilasi profesional dalam satu
+                aplikasi</p>
+
             <!-- New Features V2.8 Highlight -->
             <div class="new-features">
                 <h3><i class="fas fa-sparkles"></i> Fitur Baru di V2.8</h3>
                 <div class="new-features-grid">
                     <div class="new-feature-item">
                         <i class="fas fa-check"></i>
-                        <div><strong>Overlay Judul Lagu Dinamis</strong> - Tampilkan judul lagu di awal setiap lagu secara otomatis</div>
+                        <div><strong>Overlay Judul Lagu Dinamis</strong> - Tampilkan judul lagu di awal setiap lagu
+                            secara otomatis</div>
                     </div>
                     <div class="new-feature-item">
                         <i class="fas fa-check"></i>
-                        <div><strong>Mode Audio Intro/Outro</strong> - Normal, Seamless, atau Campuran dengan kontrol volume</div>
+                        <div><strong>Mode Audio Intro/Outro</strong> - Normal, Seamless, atau Campuran dengan kontrol
+                            volume</div>
                     </div>
                     <div class="new-feature-item">
                         <i class="fas fa-check"></i>
-                        <div><strong>Pertahankan Audio Video</strong> - Campur audio asli video dengan playlist musik</div>
+                        <div><strong>Pertahankan Audio Video</strong> - Campur audio asli video dengan playlist musik
+                        </div>
                     </div>
                     <div class="new-feature-item">
                         <i class="fas fa-check"></i>
@@ -627,17 +919,19 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-music"></i></div>
                     <h3>Gabung Audio + Video Otomatis</h3>
-                    <p>Gabungkan ratusan lagu dengan video looping. Video di-loop otomatis mengikuti durasi total audio.</p>
+                    <p>Gabungkan ratusan lagu dengan video looping. Video di-loop otomatis mengikuti durasi total audio.
+                    </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-list-ol"></i></div>
                     <h3>Timestamps & Playlist PNG</h3>
-                    <p>Generate timestamps YouTube dan playlist PNG otomatis dengan font, warna, dan layout kustom. Preview PNG manual sebelum render.</p>
+                    <p>Generate timestamps YouTube dan playlist PNG otomatis dengan font, warna, dan layout kustom.
+                        Preview PNG manual sebelum render.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-heading"></i></div>
@@ -654,7 +948,8 @@
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
                     <h3>Multi-Overlay Support</h3>
-                    <p>PNG transparan, GIF animated, video greenscreen/blackscreen dengan kontrol similarity & blend.</p>
+                    <p>PNG transparan, GIF animated, video greenscreen/blackscreen dengan kontrol similarity & blend.
+                    </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-tasks"></i></div>
@@ -726,7 +1021,9 @@
             <h2>Lihat <span>Demo</span> Langsung</h2>
             <p class="section-subtitle">Tonton bagaimana Ngrender Pro membuat video kompilasi dalam hitungan menit</p>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/agI_dNT_63g" title="Ngrender Pro Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/agI_dNT_63g" title="Ngrender Pro Demo" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -736,13 +1033,13 @@
         <div class="container">
             <h2>Investasi Sekali, <span>Pakai Selamanya</span></h2>
             <p class="section-subtitle">Lupakan biaya langganan bulanan yang mahal</p>
-            
+
             <div class="pricing-card">
                 <h3>Lisensi Personal</h3>
                 <p class="old-price">Rp 750.000</p>
                 <div class="price">Rp 400.000</div>
                 <p class="price-note">Sekali bayar, tanpa biaya bulanan/tahunan</p>
-                
+
                 <ul class="value-list">
                     <li><i class="fas fa-check-circle"></i>Gabungkan unlimited video & audio</li>
                     <li><i class="fas fa-check-circle"></i><strong>V2.8:</strong> Overlay judul lagu dinamis</li>
@@ -771,7 +1068,7 @@
         <div class="container">
             <h2>Spesifikasi <span>Sistem</span></h2>
             <p class="section-subtitle">Pastikan PC Anda memenuhi persyaratan untuk performa optimal</p>
-            
+
             <div class="req-grid">
                 <div class="req-card">
                     <h3><i class="fas fa-laptop"></i> Minimum</h3>
@@ -811,54 +1108,67 @@
         <div class="container">
             <h2>Pertanyaan <span>Umum</span></h2>
             <p class="section-subtitle">Jawaban untuk pertanyaan yang sering diajukan</p>
-            
+
             <div class="faq-container">
                 <details class="faq-item">
                     <summary>Apa itu Ngrender Pro?</summary>
                     <div class="faq-content">
-                        <p>Ngrender Pro adalah software Windows untuk membuat video kompilasi musik secara otomatis. Gabungkan ratusan lagu dengan video looping, lengkap dengan playlist, timestamps, overlay judul lagu, dan transisi profesional - semua dalam beberapa klik.</p>
+                        <p>Ngrender Pro adalah software Windows untuk membuat video kompilasi musik secara otomatis.
+                            Gabungkan ratusan lagu dengan video looping, lengkap dengan playlist, timestamps, overlay
+                            judul lagu, dan transisi profesional - semua dalam beberapa klik.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>Apa bedanya VBR dan CBR?</summary>
                     <div class="faq-content">
-                        <p><strong>VBR (Variable Bitrate)</strong> - Ideal untuk upload YouTube biasa. Ukuran file efisien dengan kualitas visual terjaga.<br><strong>CBR (Constant Bitrate)</strong> - Untuk live streaming 24/7. Bitrate konstan dengan keyframe interval sesuai standar YouTube.</p>
+                        <p><strong>VBR (Variable Bitrate)</strong> - Ideal untuk upload YouTube biasa. Ukuran file
+                            efisien dengan kualitas visual terjaga.<br><strong>CBR (Constant Bitrate)</strong> - Untuk
+                            live streaming 24/7. Bitrate konstan dengan keyframe interval sesuai standar YouTube.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>Bagaimana cara kerja Overlay Judul Lagu?</summary>
                     <div class="faq-content">
-                        <p>Fitur ini menampilkan judul lagu secara dinamis di awal setiap lagu. Anda bisa mengatur durasi tampil, posisi (9 pilihan), font, ukuran, dan warna. Preview tersedia sebelum render.</p>
+                        <p>Fitur ini menampilkan judul lagu secara dinamis di awal setiap lagu. Anda bisa mengatur
+                            durasi tampil, posisi (9 pilihan), font, ukuran, dan warna. Preview tersedia sebelum render.
+                        </p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>Apakah PNG manual bisa di-preview sebelum render?</summary>
                     <div class="faq-content">
-                        <p>Ya! Anda bisa preview PNG manual sebelum render untuk memastikan tampilan playlist sudah sesuai keinginan. Fitur preview membantu Anda melihat hasil akhir sebelum melakukan render penuh.</p>
+                        <p>Ya! Anda bisa preview PNG manual sebelum render untuk memastikan tampilan playlist sudah
+                            sesuai keinginan. Fitur preview membantu Anda melihat hasil akhir sebelum melakukan render
+                            penuh.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>Apa itu Batch Processing?</summary>
                     <div class="faq-content">
-                        <p>Batch Processing memungkinkan Anda memproses banyak video sekaligus. <strong>Classic Batch</strong> untuk video per batch, <strong>Mass Batch</strong> untuk membuat banyak output dengan variasi urutan video & audio yang diacak.</p>
+                        <p>Batch Processing memungkinkan Anda memproses banyak video sekaligus. <strong>Classic
+                                Batch</strong> untuk video per batch, <strong>Mass Batch</strong> untuk membuat banyak
+                            output dengan variasi urutan video & audio yang diacak.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>Apakah bisa untuk TikTok/Reels/Shorts?</summary>
                     <div class="faq-content">
-                        <p>Tentu! Pilih resolusi "Video Vertikal (1080x1920)" dan aplikasi akan menghasilkan video dalam format vertikal yang sempurna untuk platform short-form video.</p>
+                        <p>Tentu! Pilih resolusi "Video Vertikal (1080x1920)" dan aplikasi akan menghasilkan video dalam
+                            format vertikal yang sempurna untuk platform short-form video.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>Apakah ini sekali bayar?</summary>
                     <div class="faq-content">
-                        <p>Ya! Cukup bayar Rp 400.000 sekali, dan Anda mendapatkan lisensi seumur hidup untuk 1 PC. Termasuk update gratis selamanya dan support via Telegram.</p>
+                        <p>Ya! Cukup bayar Rp 400.000 sekali, dan Anda mendapatkan lisensi seumur hidup untuk 1 PC.
+                            Termasuk update gratis selamanya dan support via Telegram.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>Apakah tersedia untuk Mac/Linux?</summary>
                     <div class="faq-content">
-                        <p>Saat ini Ngrender Pro hanya tersedia untuk Windows 10/11 64-bit. Versi Mac/Linux belum tersedia.</p>
+                        <p>Saat ini Ngrender Pro hanya tersedia untuk Windows 10/11 64-bit. Versi Mac/Linux belum
+                            tersedia.</p>
                     </div>
                 </details>
             </div>
@@ -870,10 +1180,9 @@
         <div class="container">
             <p><strong>Ngrender Pro V2.8</strong> by Omahbot</p>
             <p>© <span id="year"></span> All Rights Reserved</p>
-            
         </div>
     </footer>
-    
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -886,4 +1195,5 @@
     </script>
 
 </body>
+
 </html>

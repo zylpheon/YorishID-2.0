@@ -1,0 +1,32 @@
+/* ── For Whom ─────────────────────────────────────────────── */
+#about {
+    background: var(--surface);
+}
+
+.whom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.whom-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: white;
+    border: 1px solid var(--border-2);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
+}
+
+.whom-card:hover {
+    border-color: rgba(26, 144, 240, .35);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 82, 165, .09);
+}
+
+.whom-card:hover .icon-box {
+    background: var(--blue);
+    color: white;
+}
