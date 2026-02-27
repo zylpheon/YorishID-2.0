@@ -171,6 +171,33 @@
             height: 110px;
             background: linear-gradient(to bottom, #FFFFFF, #00091A);
         }
+
+        .nav-btn-tool {
+            color: #10b981 !important;
+            background: rgba(16, 185, 129, 0.1) !important;
+            border-color: rgba(16, 185, 129, 0.28) !important;
+        }
+
+        .nav-btn-tool:hover {
+            background: rgba(16, 185, 129, 0.2) !important;
+            color: #fff !important;
+        }
+
+        .mobile-tool-btn {
+            color: #10b981 !important;
+            background: rgba(16, 185, 129, 0.1) !important;
+            border-color: rgba(16, 185, 129, 0.3) !important;
+        }
+
+        #h-cta .btn-outline {
+            color: #10b981 !important;
+            border-color: rgba(16, 185, 129, 0.35) !important;
+        }
+
+        #h-cta .btn-outline:hover {
+            background: rgba(16, 185, 129, 0.08) !important;
+            border-color: rgba(16, 185, 129, 0.6) !important;
+        }
     </style>
 </head>
 
@@ -247,8 +274,15 @@
             </h1>
             <p class="hero-sub" id="h-sub">YORISHID ACADEMY — Mulai dari Sekarang</p>
             <div class="hero-price-box" id="h-price">
-                <span class="hero-price-main">Rp 750.000</span>
-                <span class="hero-price-badge">Lifetime</span>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                    <span
+                        style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.38);text-decoration:line-through;letter-spacing:0.01em;">Rp
+                        1.500.000</span>
+                    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;">
+                        <span class="hero-price-main">Rp 750.000</span>
+                        <span class="hero-price-badge">Lifetime</span>
+                    </div>
+                </div>
             </div>
             <div class="hero-cta-row" id="h-cta">
                 <a href="#pricing" class="btn btn-primary">

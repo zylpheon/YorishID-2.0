@@ -848,17 +848,6 @@
         }
 
         @media (max-width: 768px) {
-            .navbar .container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
             h1 {
                 font-size: 2.2rem;
             }
@@ -906,6 +895,140 @@
                 font-size: 12px;
             }
         }
+
+        /* ── Progress Bar ── */
+        #ng-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, #10b981, #34d399);
+            z-index: 9999;
+            transition: width .08s linear;
+        }
+
+        /* ── Hamburger ── */
+        .ng-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .ng-hamburger span {
+            display: block;
+            height: 2px;
+            background: #f1f5f9;
+            border-radius: 2px;
+            transition: all .35s cubic-bezier(.68, -.55, .265, 1.55);
+        }
+
+        .ng-hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .ng-hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .ng-hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* ── Mobile Menu ── */
+        #ng-mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--dark-bg);
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 36px;
+            transform: translateX(100%);
+            transition: transform .4s cubic-bezier(.23, 1, .32, 1);
+        }
+
+        #ng-mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .ng-mobile-link {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .7);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .ng-mobile-link:hover {
+            color: #fff;
+        }
+
+        .ng-mobile-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #10b981, #059669);
+            padding: 13px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all .25s ease;
+        }
+
+        .ng-mobile-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, .35);
+        }
+
+        .ng-mobile-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .4);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, .12);
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all .25s ease;
+        }
+
+        .ng-mobile-back:hover {
+            color: #10b981;
+            border-color: rgba(16, 185, 129, .4);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                gap: 0 !important;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .ng-hamburger {
+                display: flex;
+            }
+        }
     </style>
 </head>
 
@@ -917,6 +1040,25 @@
         </svg>
         Kembali ke YorishID
     </a>
+
+    <div id="ng-progress"></div>
+
+    <div id="ng-mobile-menu" aria-hidden="true" role="dialog" aria-label="Menu mobile Ngrender Pro">
+        <a href="index.html" class="ng-mobile-back">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+            YorishID
+        </a>
+        <a href="#features" class="ng-mobile-link" data-ng-link>Fitur</a>
+        <a href="#demo" class="ng-mobile-link" data-ng-link>Demo</a>
+        <a href="#pricing" class="ng-mobile-link" data-ng-link>Harga</a>
+        <a href="#faq" class="ng-mobile-link" data-ng-link>FAQ</a>
+        <a href="#pricing" class="ng-mobile-cta" data-ng-link>
+            <i class="fab fa-whatsapp"></i> Beli Sekarang
+        </a>
+    </div>
 
     <nav class="navbar" aria-label="Navigasi utama Ngrender Pro">
         <div class="container">
@@ -938,6 +1080,9 @@
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#pricing" class="nav-cta">Beli Sekarang</a></li>
             </ul>
+            <button class="ng-hamburger" id="ng-hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
@@ -1329,6 +1474,40 @@
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
+
+        // Progress bar
+        const ngProgress = document.getElementById('ng-progress');
+        window.addEventListener('scroll', function () {
+            const scrolled = window.pageYOffset;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            ngProgress.style.width = (scrolled / total * 100) + '%';
+        }, { passive: true });
+
+        // Hamburger & mobile menu
+        const ngHamburger = document.getElementById('ng-hamburger');
+        const ngMobileMenu = document.getElementById('ng-mobile-menu');
+
+        function ngOpenMenu() {
+            ngHamburger.classList.add('active');
+            ngHamburger.setAttribute('aria-expanded', 'true');
+            ngMobileMenu.classList.add('open');
+            ngMobileMenu.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+        function ngCloseMenu() {
+            ngHamburger.classList.remove('active');
+            ngHamburger.setAttribute('aria-expanded', 'false');
+            ngMobileMenu.classList.remove('open');
+            ngMobileMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        ngHamburger.addEventListener('click', function () {
+            ngMobileMenu.classList.contains('open') ? ngCloseMenu() : ngOpenMenu();
+        });
+        document.querySelectorAll('[data-ng-link]').forEach(function (link) {
+            link.addEventListener('click', ngCloseMenu);
+        });
     </script>
 </body>
 
