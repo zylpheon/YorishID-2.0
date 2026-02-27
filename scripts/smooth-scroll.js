@@ -1,4 +1,3 @@
-/* ── Smooth Scroll ──────────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
         const target = document.querySelector(anchor.getAttribute('href'));

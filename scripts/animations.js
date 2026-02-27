@@ -1,7 +1,4 @@
-/* ── GSAP Animations ────────────────────────────────────── */
 gsap.registerPlugin(ScrollTrigger);
-
-/* Hero entrance */
 const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 heroTl
     .from('#h-badge', { opacity: 0, y: 22, duration: .6 })
@@ -10,8 +7,6 @@ heroTl
     .from('#h-price', { opacity: 0, y: 22, duration: .55 }, '-=.4')
     .from('#h-cta', { opacity: 0, y: 18, duration: .5 }, '-=.35')
     .from('#h-note', { opacity: 0, duration: .5 }, '-=.2');
-
-/* Section headers fade-up */
 gsap.utils.toArray('.gs-fade-up').forEach(function (el) {
     gsap.fromTo(el,
         { opacity: 0, y: 30 },
@@ -27,18 +22,14 @@ gsap.utils.toArray('.gs-fade-up').forEach(function (el) {
         }
     );
 });
-
-/* Card grids stagger per row */
 const staggerGroups = [
     '.whom-grid .whom-card',
     '.benefits-grid .benefit-card',
     '.note-cards .note-card'
 ];
-
 staggerGroups.forEach(function (selector) {
     const items = gsap.utils.toArray(selector);
     if (!items.length) return;
-
     const chunkSize = 3;
     for (let i = 0; i < items.length; i += chunkSize) {
         const chunk = items.slice(i, i + chunkSize);
@@ -58,8 +49,6 @@ staggerGroups.forEach(function (selector) {
         );
     }
 });
-
-/* Pricing card entrance */
 gsap.fromTo('.pricing-card',
     { opacity: 0, y: 40, scale: .98 },
     {
@@ -73,8 +62,6 @@ gsap.fromTo('.pricing-card',
         }
     }
 );
-
-/* CTA section staggered fade-up */
 gsap.utils.toArray('#cta .gs-fade-up').forEach(function (el, i) {
     gsap.fromTo(el,
         { opacity: 0, y: 24 },
@@ -91,8 +78,6 @@ gsap.utils.toArray('#cta .gs-fade-up').forEach(function (el, i) {
         }
     );
 });
-
-/* Hero glow parallax */
 gsap.to('.hero-glow-1', {
     y: -60,
     ease: 'none',

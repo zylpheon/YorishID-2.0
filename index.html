@@ -10,12 +10,10 @@
     <meta name="keywords"
         content="Yorishid Academy, Kelas YouTube, Belajar YouTube, Jadi Youtuber, Kursus YouTube, Monetisasi YouTube">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-
     <meta property="og:type" content="website">
     <meta property="og:title" content="YorishID Academy — Kelas Online YouTube">
     <meta property="og:description" content="Saatnya Menjadi Creator YouTube! Akses Lifetime Rp 750.000">
     <meta property="og:url" content="https://yorishidacademy.com/">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -26,15 +24,11 @@
       "offers": { "@type": "Offer", "price": "750000", "priceCurrency": "IDR" }
     }
     </script>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
-
-    <!-- Stylesheets (load order matters: variables first, responsive last) -->
     <link rel="stylesheet" href="./styles/variables.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/hero.css">
@@ -47,23 +41,58 @@
     <link rel="stylesheet" href="./styles/notes.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/responsive.css">
+    <style>
+        .grad-divider {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: block;
+            line-height: 0;
+            font-size: 0;
+            position: relative;
+            z-index: 0;
+        }
+
+        .grad-dark-surface {
+            height: 110px;
+            background: linear-gradient(to bottom, #00091A, #F4F8FC);
+        }
+
+        .grad-surface-white {
+            height: 80px;
+            background: linear-gradient(to bottom, #F4F8FC, #FFFFFF);
+        }
+
+        .grad-white-surface {
+            height: 80px;
+            background: linear-gradient(to bottom, #FFFFFF, #F4F8FC);
+        }
+
+        .grad-surface-dark {
+            height: 110px;
+            background: linear-gradient(to bottom, #F4F8FC, #00091A);
+        }
+
+        .grad-dark-white {
+            height: 110px;
+            background: linear-gradient(to bottom, #00091A, #FFFFFF);
+        }
+
+        .grad-white-dark {
+            height: 110px;
+            background: linear-gradient(to bottom, #FFFFFF, #00091A);
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Progress Bar -->
     <div id="progress-bar"></div>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     NAVBAR
-════════════════════════════════════════════════════════════ -->
     <nav id="navbar">
         <div class="nav-inner">
             <a href="#home" class="nav-logo">
                 <img src="./images/logo.jpg" alt="YorishID Academy Logo">
                 <span class="nav-logo-text">YORISHID</span>
             </a>
-
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
@@ -83,14 +112,11 @@
                     </a>
                 </li>
             </ul>
-
             <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
-
-    <!-- Mobile Menu -->
     <div id="mobile-menu" aria-hidden="true">
         <a href="#home" class="mobile-link" data-mobile-link>Beranda</a>
         <a href="#about" class="mobile-link" data-mobile-link>Tentang</a>
@@ -108,15 +134,10 @@
             Ngrender Pro
         </a>
     </div>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════════════════ -->
     <section id="home">
         <div class="hero-grid"></div>
         <div class="hero-glow-1"></div>
         <div class="hero-glow-2"></div>
-
         <div class="hero-inner">
             <div class="hero-badge" id="h-badge">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
@@ -126,19 +147,15 @@
                 </svg>
                 Kelas Online YouTube
             </div>
-
             <h1 class="hero-title" id="h-title">
                 Saatnya Jadi<br>
                 <span class="accent">Creator YouTube</span>
             </h1>
-
             <p class="hero-sub" id="h-sub">YORISHID ACADEMY — Mulai dari Sekarang</p>
-
             <div class="hero-price-box" id="h-price">
                 <span class="hero-price-main">Rp 750.000</span>
                 <span class="hero-price-badge">Lifetime</span>
             </div>
-
             <div class="hero-cta-row" id="h-cta">
                 <a href="#pricing" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -160,25 +177,19 @@
                     Tools Ngrender Pro
                 </a>
             </div>
-
             <p class="hero-note" id="h-note">
                 Hanya untuk yang benar-benar niat. Bukan untuk yang setengah hati atau sekadar coba-coba.
             </p>
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     FOR WHOM
-════════════════════════════════════════════════════════════ -->
+    <div class="grad-divider grad-dark-surface" aria-hidden="true"></div>
     <section id="about" class="section">
         <div class="section-inner">
             <div class="section-header gs-fade-up">
                 <span class="section-label">Untuk Siapa</span>
                 <h2 class="section-heading">Cocok Untuk Kamu yang...</h2>
             </div>
-
             <div class="whom-grid">
-
                 <div class="whom-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -195,7 +206,6 @@
                             pengalaman apapun sebelumnya</p>
                     </div>
                 </div>
-
                 <div class="whom-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -211,7 +221,6 @@
                             penghasilan ke level berikutnya</p>
                     </div>
                 </div>
-
                 <div class="whom-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -229,7 +238,6 @@
                             pasar global</p>
                     </div>
                 </div>
-
                 <div class="whom-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -245,7 +253,6 @@
                             konsisten dari YouTube</p>
                     </div>
                 </div>
-
                 <div class="whom-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -261,23 +268,17 @@
                             jadi mesin penghasil uang</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     BENEFITS
-════════════════════════════════════════════════════════════ -->
+    <div class="grad-divider grad-surface-white" aria-hidden="true"></div>
     <section id="benefits" class="section">
         <div class="section-inner">
             <div class="section-header gs-fade-up">
                 <span class="section-label">Materi & Manfaat</span>
                 <h2 class="section-heading">Yang Kamu Dapatkan</h2>
             </div>
-
             <div class="benefits-grid">
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -289,7 +290,6 @@
                     <h3>Materi Lengkap A–Z dalam Video</h3>
                     <p>Semua dibahas secara detail dan mudah dipahami bahkan oleh pemula sekalipun</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -303,7 +303,6 @@
                     <h3>Konten Indo dan Luar Negeri</h3>
                     <p>Strategi untuk menyasar pasar lokal maupun global secara bersamaan</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -314,7 +313,6 @@
                     <h3>Strategi Real, Langsung Dipraktekkan</h3>
                     <p>Terbukti berhasil dan siap diaplikasikan tanpa perlu teori yang berlebihan</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -327,7 +325,6 @@
                     <h3>Riset Judul dan Thumbnail RPM Tinggi</h3>
                     <p>Teknik membuat thumbnail menarik yang mendorong klik dan memaksimalkan penghasilan</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -339,7 +336,6 @@
                     <h3>Cara Menemukan Keyword Jitu</h3>
                     <p>Riset keyword mendalam untuk mendapatkan performa terbaik di algoritma YouTube</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -357,7 +353,6 @@
                     <h3>Ide Konten dan Cara Editing Video</h3>
                     <p>Panduan lengkap produksi konten berkualitas dari ide awal hingga video siap upload</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -374,7 +369,6 @@
                     <h3>Cara Membuat Prompt AI</h3>
                     <p>Hasilkan gambar dan musik sesuai keinginan menggunakan kecerdasan buatan</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -387,7 +381,6 @@
                     <h3>Materi Livestreaming Channel</h3>
                     <p>Strategi live streaming yang efektif untuk channel baru maupun channel peralihan</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -400,7 +393,6 @@
                     <h3>Optimasi Channel, Algoritma, dan Monetisasi</h3>
                     <p>Maksimalkan performa channel dan penghasilan secara sistematis dan terukur</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -413,7 +405,6 @@
                     <h3>Ubah Musik Suno Jadi Uang</h3>
                     <p>Monetisasi musik AI melalui agregator sebagai sumber penghasilan tambahan</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -424,7 +415,6 @@
                     <h3>Akses Bimbingan Seumur Hidup</h3>
                     <p>Bisa diulang kapan saja tanpa batas waktu, termasuk update materi di masa depan</p>
                 </div>
-
                 <div class="benefit-card gs-stagger">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -443,10 +433,7 @@
             </div>
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     PRICING
-════════════════════════════════════════════════════════════ -->
+    <div class="grad-divider grad-white-surface" aria-hidden="true"></div>
     <section id="pricing" class="section">
         <div class="section-inner">
             <div class="section-header centered gs-fade-up">
@@ -454,7 +441,6 @@
                 <h2 class="section-heading">Satu Pembayaran, Akses Selamanya</h2>
                 <p>Investasi terbaik untuk masa depan creator-mu. Bayar sekali, nikmati selamanya.</p>
             </div>
-
             <div class="pricing-card gs-fade-up">
                 <div class="pricing-header">
                     <div class="bg-grid"></div>
@@ -475,7 +461,6 @@
                         <p class="pricing-price-note">Akses seumur hidup — bayar sekali, nikmati seterusnya</p>
                     </div>
                 </div>
-
                 <div class="pricing-body">
                     <p class="pricing-includes-label">Sudah Termasuk</p>
                     <ul class="check-list">
@@ -545,7 +530,6 @@
                                 <polyline points="20 6 9 17 4 12" />
                             </svg>Grup WhatsApp sharing eksklusif sesama member</li>
                     </ul>
-
                     <div class="payment-box">
                         <div class="payment-box-head">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -561,7 +545,6 @@
                         <p class="account-number">0600677161</p>
                         <p class="account-name">a/n YOSEPH ARIS BUDIANTORO</p>
                     </div>
-
                     <div class="payment-box">
                         <div class="payment-box-head">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -589,10 +572,7 @@
             </div>
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     CTA
-════════════════════════════════════════════════════════════ -->
+    <div class="grad-divider grad-surface-dark" aria-hidden="true"></div>
     <section id="cta">
         <div class="bg-grid"></div>
         <div class="bg-glow"></div>
@@ -612,10 +592,7 @@
             </a>
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     NOTES
-════════════════════════════════════════════════════════════ -->
+    <div class="grad-divider grad-dark-white" aria-hidden="true"></div>
     <section id="notes">
         <div class="notes-inner">
             <div class="gs-fade-up">
@@ -624,7 +601,6 @@
                 <p style="margin-top:10px;font-size:15px;color:var(--text-2);">Dengan mendaftar, kamu memahami dan
                     menyetujui hal-hal berikut:</p>
             </div>
-
             <div class="note-cards">
                 <div class="note-card gs-stagger">
                     <div class="note-icon">
@@ -640,7 +616,6 @@
                         <p>Kami tidak menjanjikan uang dalam jumlah besar secara tiba-tiba atau dalam waktu singkat</p>
                     </div>
                 </div>
-
                 <div class="note-card gs-stagger">
                     <div class="note-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -653,7 +628,6 @@
                         <p>Niat, doa, kerja keras, dan konsistensi kamu sendiri yang paling menentukan hasilnya</p>
                     </div>
                 </div>
-
                 <div class="note-card gs-stagger">
                     <div class="note-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -669,7 +643,6 @@
                             apapun</p>
                     </div>
                 </div>
-
                 <div class="note-card gs-stagger">
                     <div class="note-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -685,30 +658,24 @@
                     </div>
                 </div>
             </div>
-
             <p class="notes-foot gs-fade-up">
                 Kelas ini cocok untuk kamu yang serius, berkomitmen, dan siap bekerja keras membangun channel YouTube
                 yang sukses.
             </p>
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════════════ -->
+    <div class="grad-divider grad-white-dark" aria-hidden="true"></div>
     <footer>
         <div class="footer-inner">
             <div class="footer-logo">
                 <img src="./images/logo.jpg" alt="YorishID Academy Logo">
                 <span class="footer-logo-text">YORISHID ACADEMY</span>
             </div>
-
             <p class="footer-desc">
                 Kelas Online YouTube — Saatnya menjadi creator YouTube profesional, mulai dari sekarang.
             </p>
 
             <div class="footer-divider"></div>
-
             <div class="footer-links">
                 <a href="ngrender.html" class="footer-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
@@ -737,23 +704,17 @@
                     Kembali ke Atas
                 </a>
             </div>
-
             <p class="footer-copy">
                 &copy; <span id="year"></span> Yorishid Academy. All rights reserved.
             </p>
         </div>
     </footer>
-
-    <!-- ═══════════════════════════════════════════════════════════
-     SCRIPTS (GSAP must load before animation scripts)
-════════════════════════════════════════════════════════════ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/navbar.js"></script>
     <script src="./scripts/smooth-scroll.js"></script>
     <script src="./scripts/animations.js"></script>
-
 </body>
 
 </html>
